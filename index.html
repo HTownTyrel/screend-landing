@@ -71,7 +71,7 @@
 
     /* ── Hero section ───────────────────────────────── */
     .hero {
-      padding: 64px 24px 48px;
+      padding: 64px 24px 64px;
       max-width: 680px;
       margin: 0 auto;
       text-align: center;
@@ -112,7 +112,7 @@
       font-size: clamp(16px, 3vw, 20px);
       font-weight: 600;
       color: #444;
-      margin-bottom: 12px;
+      margin-bottom: 24px;
       font-style: italic;
     }
 
@@ -253,6 +253,13 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
+    }
+
+    /* ── Mobile: 2 columns on small screens ─────────── */
+    @media (max-width: 640px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .feature-card {
