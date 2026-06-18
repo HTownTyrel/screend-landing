@@ -11,33 +11,6 @@
   <!-- Space Grotesk font — same as the app -->
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-  <!-- Brevo required styles -->
-  <style>
-    @font-face {
-      font-display: block;
-      font-family: Roboto;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
-    }
-    @font-face {
-      font-display: fallback;
-      font-family: Roboto;
-      font-weight: 600;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
-    }
-    @font-face {
-      font-display: fallback;
-      font-family: Roboto;
-      font-weight: 700;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
-    }
-    :where(.sib-form-message-panel) { display: none; }
-    :where(.sib-form-message-panel .sib-notification__icon) { width: 20px; height: 20px; }
-    #sib-container input:-ms-input-placeholder { font-family: 'Space Grotesk', sans-serif; text-align: left; color: #888; }
-    #sib-container input::placeholder { font-family: 'Space Grotesk', sans-serif; text-align: left; color: #888; }
-    #sib-container a { text-decoration: underline; color: #2BB2FC; }
-  </style>
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-
   <style>
     /* ── Reset & Base ───────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,13 +26,20 @@
     .header {
       background: #FFE500;
       border-bottom: 3px solid #0a0a0a;
-      padding: 16px 24px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .header-icon { font-size: 32px; line-height: 1; }
+    .header-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
 
     .header-title {
       font-size: 22px;
@@ -93,7 +73,7 @@
     }
 
     .hero-title {
-      font-size: clamp(36px, 8vw, 64px); /* clamp = scales between min and max based on screen size */
+      font-size: clamp(36px, 8vw, 64px);
       font-weight: 900;
       letter-spacing: -1px;
       line-height: 1.05;
@@ -102,7 +82,6 @@
     }
 
     .hero-title span {
-      /* Highlight the word "Screend" in yellow */
       background: #FFE500;
       padding: 0 6px;
       border-bottom: 3px solid #0a0a0a;
@@ -156,106 +135,16 @@
       line-height: 1.5;
     }
 
-    /* ── Override Brevo form styles ─────────────────── */
-    /* Hide Brevo's own heading and description since we wrote our own above */
-    #sib-form .sib-form-block p { display: none; }
-    #sib-form .sib-text-form-block { display: none; }
-
-    /* Remove Brevo's outer container background/border — we use our own card */
-    #sib-form-container,
-    .sib-form,
-    #sib-container {
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      max-width: 100% !important;
-    }
-
-    /* Email input — Neobrutalism style */
-    #sib-container .input {
-      width: 100% !important;
-      background: #FFFBF0 !important;
-      border: 2px solid #0a0a0a !important;
-      border-radius: 4px !important;
-      padding: 12px 16px !important;
-      font-family: 'Space Grotesk', sans-serif !important;
-      font-size: 14px !important;
-      font-weight: 600 !important;
-      color: #0a0a0a !important;
-      outline: none !important;
-    }
-
-    /* Field label */
-    #sib-container .entry__label {
-      font-family: 'Space Grotesk', sans-serif !important;
-      font-size: 11px !important;
-      font-weight: 900 !important;
-      letter-spacing: 2px !important;
-      text-transform: uppercase !important;
-      color: #555 !important;
-      margin-bottom: 6px !important;
-    }
-
-    /* Help text below the input */
-    #sib-container .entry__specification {
-      font-family: 'Space Grotesk', sans-serif !important;
-      font-size: 11px !important;
-      color: #888 !important;
-      margin-top: 6px !important;
-    }
-
-    /* NOTIFY ME button — Neobrutalism yellow */
-    #sib-container .sib-form-block__button {
-      background: #FFE500 !important;
-      color: #0a0a0a !important;
-      border: 2px solid #0a0a0a !important;
-      box-shadow: 4px 4px 0px #0a0a0a !important;
-      border-radius: 4px !important;
-      padding: 12px 28px !important;
-      font-family: 'Space Grotesk', sans-serif !important;
-      font-size: 13px !important;
-      font-weight: 900 !important;
-      letter-spacing: 2px !important;
-      text-transform: uppercase !important;
-      cursor: pointer !important;
-      margin-top: 8px !important;
-      transition: transform 0.1s, box-shadow 0.1s;
-    }
-
-    /* Button press effect */
-    #sib-container .sib-form-block__button:active {
-      transform: translate(2px, 2px) !important;
-      box-shadow: 2px 2px 0px #0a0a0a !important;
-    }
-
-    /* Success message */
-    #success-message {
-      font-family: 'Space Grotesk', sans-serif !important;
-      background: #e7faf0 !important;
-      border-color: #13ce66 !important;
-      border-radius: 4px !important;
-      font-weight: 700 !important;
-    }
-
-    /* Error message */
-    #error-message {
-      font-family: 'Space Grotesk', sans-serif !important;
-      border-radius: 4px !important;
-      font-weight: 700 !important;
-    }
-
     /* ── Feature cards ──────────────────────────────── */
     .features {
       max-width: 960px;
       margin: 0 auto 48px;
       padding: 0 24px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
-    /* ── Mobile: 2 columns on small screens ─────────── */
     @media (max-width: 640px) {
       .features {
         grid-template-columns: repeat(2, 1fr);
@@ -303,6 +192,147 @@
     .footer a {
       color: #FFE500;
       text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0;
+    }
+
+    /* ── Contact modal ──────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.7);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #FFFBF0;
+      border: 3px solid #0a0a0a;
+      box-shadow: 8px 8px 0px #0a0a0a;
+      border-radius: 4px;
+      padding: 32px;
+      width: 100%;
+      max-width: 480px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #0a0a0a;
+      line-height: 1;
+      padding: 0 4px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    .field-required { color: #FF2D78; }
+
+    .field-optional {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      color: #888;
+    }
+
+    .modal input,
+    .modal textarea {
+      width: 100%;
+      border: 2px solid #0a0a0a;
+      background: #fff;
+      color: #0a0a0a;
+      padding: 12px 14px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+      outline: none;
+      border-radius: 0;
+    }
+
+    .modal textarea { resize: vertical; }
+
+    .modal-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .modal-submit {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #0a0a0a;
+      box-shadow: 4px 4px 0px #0a0a0a;
+      background: #FFE500;
+      color: #0a0a0a;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: 'Space Grotesk', sans-serif;
+      border-radius: 4px;
+    }
+
+    .modal-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .modal-success {
+      padding: 16px 20px;
+      background: #CCFF00;
+      border: 2px solid #0a0a0a;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0a0a0a;
+      line-height: 1.6;
+    }
+
+    .modal-error {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FF2D78;
     }
   </style>
 </head>
@@ -310,7 +340,7 @@
 
   <!-- Header -->
   <div class="header">
-    <span class="header-icon">📽</span>
+    <img src="https://app.screendmedia.app/icon-512.png" alt="Screend" class="header-logo" />
     <span class="header-title">Screend</span>
   </div>
 
@@ -345,6 +375,16 @@
       <div class="icon">⚖️</div>
       <h3>Appeals</h3>
       <p>Kids can appeal a decision. It teaches them to advocate for themselves — respectfully.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>Age-Gating</h3>
+      <p>Set different verdicts for different kids. A PG-13 film might be fine for your 15-year-old but not your 8-year-old. Each kid only sees what's meant for them.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">👫</div>
+      <h3>Two Parents</h3>
+      <p>Invite a second parent or guardian. They get full access to reviews, the inbox, and settings — same as you. No more being the only one managing it.</p>
     </div>
   </div>
 
@@ -388,10 +428,48 @@
   <footer class="footer">
     © 2026 Screend — delacamp, LLC &nbsp;·&nbsp;
     <a href="/legal.html">Privacy Policy & Terms</a> &nbsp;·&nbsp;
-    <a href="mailto:hello@screendmedia.app">hello@screendmedia.app</a>
+    <button class="a" onclick="openContact()" style="color:#FFE500; text-decoration:underline; cursor:pointer; background:none; border:none; font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:0;">Contact Us</button>
   </footer>
 
+  <!-- Contact modal -->
+  <div class="modal-overlay" id="contact-modal" onclick="handleOverlayClick(event)">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Contact Us</span>
+        <button class="modal-close" onclick="closeContact()">✕</button>
+      </div>
+
+      <div id="contact-success" style="display:none;" class="modal-success">
+        ✓ Message sent! We'll get back to you soon. (And we can't wait to hear that joke.)
+      </div>
+
+      <div id="contact-form-wrap">
+        <div class="modal-fields">
+          <div>
+            <label class="field-label" for="c-name">Name <span class="field-required">*</span></label>
+            <input id="c-name" type="text" placeholder="Your name" />
+          </div>
+          <div>
+            <label class="field-label" for="c-email">Email <span class="field-required">*</span></label>
+            <input id="c-email" type="email" placeholder="Your email address" />
+          </div>
+          <div>
+            <label class="field-label" for="c-message">Message <span class="field-required">*</span></label>
+            <textarea id="c-message" rows="4" placeholder="Your message"></textarea>
+          </div>
+          <div>
+            <label class="field-label" for="c-joke">Dad Joke <span class="field-optional">(optional but encouraged 🎤)</span></label>
+            <textarea id="c-joke" rows="2" placeholder="Your best dad joke goes here..."></textarea>
+          </div>
+          <p id="contact-error" class="modal-error" style="display:none;">Please fill in your name, email, and message.</p>
+          <button class="modal-submit" id="contact-btn" onclick="submitContact()">SEND MESSAGE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    /* ── Waitlist form ── */
     async function submitWaitlist(e) {
       e.preventDefault();
       var email = document.getElementById('waitlist-email').value.trim();
@@ -415,6 +493,53 @@
         errEl.style.display = 'block';
       } finally {
         btn.textContent = 'NOTIFY ME';
+        btn.disabled = false;
+      }
+    }
+
+    /* ── Contact modal ── */
+    function openContact() {
+      document.getElementById('contact-modal').classList.add('open');
+    }
+
+    function closeContact() {
+      document.getElementById('contact-modal').classList.remove('open');
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('contact-modal')) closeContact();
+    }
+
+    async function submitContact() {
+      var name    = document.getElementById('c-name').value.trim();
+      var email   = document.getElementById('c-email').value.trim();
+      var message = document.getElementById('c-message').value.trim();
+      var dadJoke = document.getElementById('c-joke').value.trim();
+      var errEl   = document.getElementById('contact-error');
+      var btn     = document.getElementById('contact-btn');
+
+      errEl.style.display = 'none';
+      if (!name || !email || !message) {
+        errEl.style.display = 'block';
+        return;
+      }
+
+      btn.textContent = 'SENDING...';
+      btn.disabled = true;
+
+      try {
+        var res = await fetch('https://sqinmxsssbitqdpfyjmp.supabase.co/functions/v1/contact-us', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message, dadJoke }),
+        });
+        if (!res.ok) throw new Error('server error');
+        document.getElementById('contact-form-wrap').style.display = 'none';
+        document.getElementById('contact-success').style.display = 'block';
+      } catch (err) {
+        errEl.textContent = 'Something went wrong. Please try again.';
+        errEl.style.display = 'block';
+        btn.textContent = 'SEND MESSAGE';
         btn.disabled = false;
       }
     }
