@@ -1,550 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Screend — Guarding the hearts and minds of those we love.</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- App icon shown in browser tab -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📽</text></svg>">
+<title>Screend — Family Content Reviews: Movies, TV, Games & Books</title>
+<meta name="description" content="Screend helps parents review movies, TV shows, video games, and books against your family's own criteria — so you decide what your kids watch, read, or play." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://screendmedia.app/" />
+<meta name="theme-color" content="#FFE500" />
 
-  <!-- Space Grotesk font — same as the app -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;900&display=swap" rel="stylesheet">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://screendmedia.app/" />
+<meta property="og:site_name" content="Screend" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Screend — Family Content Reviews: Movies, TV, Games & Books" />
+<meta property="og:description" content="Screend helps parents review movies, TV shows, video games, and books against your family's own criteria — so you decide what your kids watch, read, or play." />
+<meta property="og:image" content="https://screendmedia.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Screend — review movies, TV, games and books against your family's own criteria, with clear Yes / With Me / Nope verdicts." />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Screend — Family Content Reviews: Movies, TV, Games & Books" />
+<meta name="twitter:description" content="Screend helps parents review movies, TV shows, video games, and books against your family's own criteria — so you decide what your kids watch, read, or play." />
+<meta name="twitter:image" content="https://screendmedia.app/og-image.png" />
+<meta name="twitter:image:alt" content="Screend — review movies, TV, games and books against your family's own criteria, with clear Yes / With Me / Nope verdicts." />
+
+<link rel="icon" type="image/png" href="logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Screend",
+  "url": "https://screendmedia.app/",
+  "logo": "https://screendmedia.app/logo.png",
+  "description": "Screend lets families set their own custom content criteria and uses AI to review movies, TV shows, video games, and books against those exact standards.",
+  "sameAs": []
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Screend",
+  "url": "https://screendmedia.app/",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "description": "Screend lets parents set their own content criteria and uses AI to review movies, TV shows, video games, and books — so families decide ahead of time what their kids can watch, read, or play."
+}
+</script>
 
   <style>
-    /* ── Reset & Base ───────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background-color: #FFFBF0;
-      font-family: 'Space Grotesk', sans-serif;
-      color: #0a0a0a;
-      min-height: 100vh;
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: #FFFBF0; font-family: 'Space Grotesk', sans-serif; color: #0a0a0a; }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
-    /* ── Header bar ─────────────────────────────────── */
-    .header {
-      background: #FFE500;
-      border-bottom: 3px solid #0a0a0a;
-      padding: 12px 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* Mobile: collapse two-column sections to one column */
+    @media (max-width: 768px) {
+      .site-nav { padding: 12px 16px !important; }
+
+      .hero-grid { grid-template-columns: 1fr !important; min-height: auto !important; }
+      .hero-left { padding: 40px 24px 36px !important; border-right: none !important; border-bottom: 3px solid #0a0a0a !important; }
+      .hero-h1 { font-size: clamp(40px, 11vw, 60px) !important; }
+      .hero-stats { flex-wrap: wrap !important; row-gap: 20px !important; }
+      .hero-right { padding: 32px 20px !important; }
+      .hero-arrow { display: none !important; }
+
+      .section-pad { padding: 48px 20px !important; }
+      .feature-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+
+      .asym-grid { grid-template-columns: 1fr !important; }
+      .feat-1 { grid-row: auto !important; border-right: none !important; border-bottom: 3px solid #0a0a0a !important; }
+      .feat-2 { border-right: none !important; }
+      .feat-4 { border-right: none !important; border-bottom: 3px solid #0a0a0a !important; }
+
+      .cta-section { padding: 56px 20px !important; }
+      .cta-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center !important; }
+      .cta-buttons { min-width: 0 !important; }
+
+      footer { padding: 20px 24px !important; justify-content: center !important; text-align: center !important; }
     }
 
-    .header-logo {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-    }
-
-    .header-title {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #0a0a0a;
-    }
-
-    /* ── Hero section ───────────────────────────────── */
-    .hero {
-      padding: 64px 24px 48px;
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    /* "COMING SOON" badge */
-    .badge {
-      display: inline-block;
-      background: #CCFF00;
-      border: 2px solid #0a0a0a;
-      box-shadow: 3px 3px 0px #0a0a0a;
-      border-radius: 4px;
-      padding: 4px 16px;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .hero-title {
-      font-size: clamp(36px, 8vw, 64px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      line-height: 1.05;
-      color: #0a0a0a;
-      margin-bottom: 16px;
-    }
-
-    .hero-title span {
-      background: #FFE500;
-      padding: 0 6px;
-      border-bottom: 3px solid #0a0a0a;
-    }
-
-    .hero-tagline {
-      font-size: clamp(16px, 3vw, 20px);
-      font-weight: 600;
-      color: #444;
-      margin-bottom: 24px;
-      font-style: italic;
-    }
-
-    .hero-description {
-      font-size: 16px;
-      font-weight: 500;
-      color: #333;
-      line-height: 1.7;
-      margin-bottom: 0;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ── Signup card ────────────────────────────────── */
-    .signup-card {
-      background: #fff;
-      border: 3px solid #0a0a0a;
-      box-shadow: 6px 6px 0px #0a0a0a;
-      border-radius: 4px;
-      padding: 32px;
-      max-width: 520px;
-      margin: 0 auto 64px;
-      text-align: left;
-    }
-
-    .signup-card h2 {
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      color: #0a0a0a;
-    }
-
-    .signup-card p {
-      font-size: 13px;
-      font-weight: 600;
-      color: #555;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-
-    /* ── Feature cards ──────────────────────────────── */
-    .features {
-      max-width: 960px;
-      margin: 0 auto 48px;
-      padding: 0 24px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 640px) {
-      .features {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .feature-card {
-      background: #fff;
-      border: 2px solid #0a0a0a;
-      box-shadow: 4px 4px 0px #0a0a0a;
-      border-radius: 4px;
-      padding: 20px;
-    }
-
-    .feature-card .icon { font-size: 28px; margin-bottom: 10px; }
-
-    .feature-card h3 {
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .feature-card p {
-      font-size: 13px;
-      font-weight: 500;
-      color: #555;
-      line-height: 1.5;
-    }
-
-    /* ── Footer ─────────────────────────────────────── */
-    .footer {
-      border-top: 3px solid #0a0a0a;
-      background: #0a0a0a;
-      color: #FFE500;
-      text-align: center;
-      padding: 20px 24px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .footer a {
-      color: #FFE500;
-      text-decoration: underline;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 0;
-    }
-
-    /* ── Contact modal ──────────────────────────────── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(10,10,10,0.7);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .modal-overlay.open {
-      display: flex;
-    }
-
-    .modal {
-      background: #FFFBF0;
-      border: 3px solid #0a0a0a;
-      box-shadow: 8px 8px 0px #0a0a0a;
-      border-radius: 4px;
-      padding: 32px;
-      width: 100%;
-      max-width: 480px;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .modal-title {
-      font-size: 16px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 22px;
-      cursor: pointer;
-      color: #0a0a0a;
-      line-height: 1;
-      padding: 0 4px;
-    }
-
-    .field-label {
-      display: block;
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #555;
-      margin-bottom: 6px;
-    }
-
-    .field-required { color: #FF2D78; }
-
-    .field-optional {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0;
-      text-transform: none;
-      color: #888;
-    }
-
-    .modal input,
-    .modal textarea {
-      width: 100%;
-      border: 2px solid #0a0a0a;
-      background: #fff;
-      color: #0a0a0a;
-      padding: 12px 14px;
-      font-size: 15px;
-      font-weight: 600;
-      font-family: 'Space Grotesk', sans-serif;
-      outline: none;
-      border-radius: 0;
-    }
-
-    .modal textarea { resize: vertical; }
-
-    .modal-fields {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .modal-submit {
-      width: 100%;
-      padding: 14px;
-      border: 2px solid #0a0a0a;
-      box-shadow: 4px 4px 0px #0a0a0a;
-      background: #FFE500;
-      color: #0a0a0a;
-      cursor: pointer;
-      font-weight: 900;
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-family: 'Space Grotesk', sans-serif;
-      border-radius: 4px;
-    }
-
-    .modal-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-
-    .modal-success {
-      padding: 16px 20px;
-      background: #CCFF00;
-      border: 2px solid #0a0a0a;
-      font-size: 14px;
-      font-weight: 700;
-      color: #0a0a0a;
-      line-height: 1.6;
-    }
-
-    .modal-error {
-      font-size: 13px;
-      font-weight: 700;
-      color: #FF2D78;
-    }
+    /* FAQ accordion */
+    details.faq { border:2px solid #0a0a0a; border-radius:4px; background:#fff; margin-bottom:10px; box-shadow:4px 4px 0 #0a0a0a; }
+    details.faq > summary { list-style:none; cursor:pointer; padding:16px 18px; font-weight:800; font-size:15px; color:#0a0a0a; display:flex; align-items:center; justify-content:space-between; gap:12px; font-family:'Space Grotesk',sans-serif; }
+    details.faq > summary::-webkit-details-marker { display:none; }
+    details.faq > summary::after { content:'+'; font-size:22px; font-weight:900; line-height:1; flex-shrink:0; }
+    details.faq[open] > summary::after { content:'\2013'; }
+    details.faq[open] > summary { background:#FFFBF0; border-bottom:2px solid #0a0a0a; }
+    details.faq .faq-a { padding:14px 18px 18px; font-size:14px; font-weight:500; color:#444; line-height:1.65; }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="header">
-    <img src="https://app.screendmedia.app/icon-512.png" alt="Screend" class="header-logo" />
-    <span class="header-title">Screend</span>
+<!-- NAV -->
+<nav class="site-nav" style="display:flex; align-items:center; justify-content:space-between; padding:14px 40px; border-bottom:3px solid #0a0a0a; background:#FFE500; position:sticky; top:0; z-index:100;">
+  <div style="display:flex; align-items:center; gap:10px;">
+    <img src="logo.png" alt="Screend logo" style="width:46px; height:46px; object-fit:contain;" />
+    <span style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:26px; letter-spacing:0.06em; color:#0a0a0a;">SCREEND</span>
   </div>
+  <div style="display:flex; gap:12px; align-items:center;">
+    <button onclick="document.getElementById('notify-modal').style.display='flex'" style="font-size:14px; font-weight:900; color:#FFE500; padding:10px 22px; background:#0a0a0a; border:2px solid #0a0a0a; box-shadow:3px 3px 0 #0a0a0a; letter-spacing:0.06em; cursor:pointer; font-family:'Space Grotesk',sans-serif; text-transform:uppercase;">NOTIFY ME</button>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="badge">Coming Soon</div>
-    <h1 class="hero-title">Know what<br>your kids<br>are <span>watching.</span></h1>
-    <p class="hero-tagline">"Guarding the hearts and minds of those we love."</p>
-    <p class="hero-description">
-      Screend is the family media tracker that helps parents review movies, shows, and games — and gives kids a voice in the process. Know what they're watching. Make it a conversation.
+<!-- HERO -->
+<section class="hero-grid" style="display:grid; grid-template-columns:1fr 420px; min-height:88vh; border-bottom:3px solid #0a0a0a;">
+
+  <!-- LEFT: Headline + CTAs -->
+  <div class="hero-left" style="padding:72px 56px 64px 48px; display:flex; flex-direction:column; justify-content:center; border-right:3px solid #0a0a0a;">
+    <div style="display:inline-flex; align-items:center; gap:8px; background:#0a0a0a; color:#FFE500; font-family:'Share Tech Mono',monospace; font-size:11px; letter-spacing:0.12em; padding:6px 12px; margin-bottom:36px; width:fit-content; border-radius:2px;">
+      VALUE-DRIVEN · AI-POWERED · COMPLETELY YOURS
+    </div>
+
+    <h1 class="hero-h1" style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:clamp(60px,6.5vw,92px); line-height:0.92; margin:0 0 10px; letter-spacing:-0.01em;">
+      YOUR VALUES.<br>
+      <span style="display:inline-block; background:#FFE500; padding:2px 10px; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a;">YOUR CRITERIA.</span><br>
+      YOUR CALL.
+    </h1>
+
+    <p style="font-size:19px; line-height:1.55; color:#0a0a0a; max-width:540px; margin:28px 0 0; font-weight:600;">
+      Screend equips and empowers parents to easily review <strong>movies, TV shows, video games, and books</strong> based on highly customizable criteria — so you can decide ahead of time what your kids can watch, read, or play.
     </p>
-  </section>
+    <p style="font-size:18px; line-height:1.6; color:#333; max-width:520px; margin:14px 0 0; font-weight:500;">
+      Don't trust general content ratings when you can set the exact standards that matter to <em>your</em> family. Screend reviews every movie, show, game and book against your own rules.
+    </p>
+    <p style="font-size:18px; line-height:1.6; color:#777; max-width:480px; margin:10px 0 40px; font-weight:500;">
+      No more guessing. No more surprises. Just clear decisions grounded in what you actually believe.
+    </p>
 
-  <!-- Feature cards -->
-  <div class="features">
-    <div class="feature-card">
-      <div class="icon">🎬</div>
-      <h3>Kids Request</h3>
-      <p>Let your kids submit titles for review. No more "can I watch this?" interruptions at dinner.</p>
+    <div class="hero-arrow" style="display:flex; align-items:center; gap:16px; justify-content:flex-end;">
+      <span style="font-size:13px; font-weight:800; color:#888; letter-spacing:0.1em; text-transform:uppercase; white-space:nowrap;">See how it works</span>
+      <div style="display:flex; align-items:center;">
+        <div style="width:72px; height:16px; background:#0a0a0a;"></div>
+        <div style="width:0; height:0; border-top:30px solid transparent; border-bottom:30px solid transparent; border-left:38px solid #0a0a0a;"></div>
+      </div>
     </div>
-    <div class="feature-card">
-      <div class="icon">🤖</div>
-      <h3>AI Review</h3>
-      <p>AI reviews requested media using criteria you set up yourself so it fits your family. Decisions and notes get saved automatically.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📋</div>
-      <h3>Decision Tracker</h3>
-      <p>Track every movie, show, and video game your family has reviewed so you don't have to remember. Easily sort in a variety of ways.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">⚖️</div>
-      <h3>Appeals</h3>
-      <p>Kids can appeal a decision. It teaches them to advocate for themselves — respectfully.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🔒</div>
-      <h3>Age-Gating</h3>
-      <p>Set different verdicts for different kids. A PG-13 film might be fine for your 15-year-old but not your 8-year-old. Each kid only sees what's meant for them.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">👫</div>
-      <h3>Two Parents</h3>
-      <p>Invite a second parent or guardian. They get full access to reviews, the inbox, and settings — same as you. No more being the only one managing it.</p>
+
+    <div class="hero-stats" style="display:flex; gap:28px; margin-top:44px; padding-top:32px; border-top:2px dashed #ccc; justify-content:center; text-align:center;">
+      <div>
+        <div style="font-family:'Rajdhani',sans-serif; font-size:36px; font-weight:700; color:#0a0a0a;">100%</div>
+        <div style="font-size:11px; color:#888; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Custom to you</div>
+      </div>
+      <div style="width:2px; background:#ddd;"></div>
+      <div>
+        <div style="font-family:'Rajdhani',sans-serif; font-size:36px; font-weight:700; color:#0a0a0a;">Seconds</div>
+        <div style="font-size:11px; color:#888; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">To generate a detailed review</div>
+      </div>
+      <div style="width:2px; background:#ddd;"></div>
+      <div>
+        <div style="font-family:'Rajdhani',sans-serif; font-size:36px; font-weight:700; color:#0a0a0a;">∞</div>
+        <div style="font-size:11px; color:#888; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">Criteria you can set</div>
+      </div>
     </div>
   </div>
 
-  <!-- Waitlist signup card -->
-  <div class="signup-card" style="max-width:520px; margin: 0 auto 64px; padding: 32px 24px;">
-    <h2>Be the First to Know</h2>
-    <p>Screend is coming soon. Enter your email and we'll let you know when it's ready for your family.</p>
+  <!-- RIGHT: Criteria card mockup — matches actual ReviewCriteriaSetup component -->
+  <div class="hero-right" style="background:#FFFBF0; padding:48px 28px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
 
-    <div id="waitlist-error" style="display:none; font-family:'Space Grotesk',sans-serif; font-size:13px; color:#661d1d; background:#ffeded; border:1px solid #ff4949; border-radius:4px; padding:10px 14px; margin-bottom:12px;">
-      Oops, something went wrong. Please try again.
-    </div>
-    <div id="waitlist-success" style="display:none; font-family:'Space Grotesk',sans-serif; font-size:13px; color:#085229; background:#e7faf0; border:1px solid #13ce66; border-radius:4px; padding:10px 14px; margin-bottom:12px;">
-      You're on the list! Check your email to confirm your spot.
+    <div style="background:#fff; border:3px solid #0a0a0a; box-shadow:6px 6px 0 #0a0a0a; width:100%; max-width:340px; border-radius:4px; overflow:hidden;">
+
+      <!-- Mimics the app's ReviewCriteriaSetup header -->
+      <div style="background:#0a0a0a; padding:16px 18px;">
+        <div style="display:inline-block; background:#FFE500; border:2px solid #FFE500; padding:4px 12px; font-size:11px; font-weight:900; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px; border-radius:2px;">🎬 REVIEW CRITERIA</div>
+        <div style="font-size:11px; color:#aaa; font-weight:600; letter-spacing:0.5px;">Tell Screend what to look for when reviewing titles for your family.</div>
+      </div>
+
+      <!-- Standard categories — matches app's categoryCard style -->
+      <div style="padding:14px 16px; display:flex; flex-direction:column; gap:8px; background:#FFFBF0;">
+
+        <!-- Category ON -->
+        <div style="border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; background:#FFFBF0; padding:12px 14px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font-size:14px; font-weight:800; color:#0a0a0a;">Nudity &amp; sexual content</span>
+            <span style="background:#FFE500; color:#0a0a0a; border:2px solid #0a0a0a; box-shadow:2px 2px 0 #0a0a0a; padding:5px 12px; font-size:11px; font-weight:900; letter-spacing:2px; flex-shrink:0;">ON</span>
+          </div>
+        </div>
+
+        <!-- Category OFF -->
+        <div style="border:2px solid #ddd; background:#fff; padding:12px 14px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font-size:14px; font-weight:800; color:#aaa;">Spiritual content</span>
+            <span style="background:#fff; color:#aaa; border:2px solid #ddd; padding:5px 12px; font-size:11px; font-weight:900; letter-spacing:2px; flex-shrink:0;">OFF</span>
+          </div>
+        </div>
+
+        <!-- Category ON -->
+        <div style="border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; background:#FFFBF0; padding:12px 14px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font-size:14px; font-weight:800; color:#0a0a0a;">Sexual themes in the storyline</span>
+            <span style="background:#FFE500; color:#0a0a0a; border:2px solid #0a0a0a; box-shadow:2px 2px 0 #0a0a0a; padding:5px 12px; font-size:11px; font-weight:900; letter-spacing:2px; flex-shrink:0;">ON</span>
+          </div>
+        </div>
+
+        <!-- Category ON -->
+        <div style="border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; background:#FFFBF0; padding:12px 14px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font-size:14px; font-weight:800; color:#0a0a0a;">Profanity / language</span>
+            <span style="background:#FFE500; color:#0a0a0a; border:2px solid #0a0a0a; box-shadow:2px 2px 0 #0a0a0a; padding:5px 12px; font-size:11px; font-weight:900; letter-spacing:2px; flex-shrink:0;">ON</span>
+          </div>
+        </div>
+
+        <!-- Category OFF -->
+        <div style="border:2px solid #ddd; background:#fff; padding:12px 14px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font-size:14px; font-weight:800; color:#aaa;">Violence &amp; gore</span>
+            <span style="background:#fff; color:#aaa; border:2px solid #ddd; padding:5px 12px; font-size:11px; font-weight:900; letter-spacing:2px; flex-shrink:0;">OFF</span>
+          </div>
+        </div>
+
+        <!-- Category OFF -->
+        <div style="border:2px solid #ddd; background:#fff; padding:12px 14px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font-size:14px; font-weight:800; color:#aaa;">Drug &amp; alcohol use</span>
+            <span style="background:#fff; color:#aaa; border:2px solid #ddd; padding:5px 12px; font-size:11px; font-weight:900; letter-spacing:2px; flex-shrink:0;">OFF</span>
+          </div>
+        </div>
+
+        <!-- Category OFF -->
+        <div style="border:2px solid #ddd; background:#fff; padding:12px 14px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+            <span style="font-size:14px; font-weight:800; color:#aaa;">Frightening or intense scenes</span>
+            <span style="background:#fff; color:#aaa; border:2px solid #ddd; padding:5px 12px; font-size:11px; font-weight:900; letter-spacing:2px; flex-shrink:0;">OFF</span>
+          </div>
+        </div>
+
+        <!-- Add button — matches app's addBtn style -->
+        <button style="padding:11px 16px; border:2px dashed #0a0a0a; background:none; color:#0a0a0a; cursor:pointer; font-weight:800; font-size:12px; letter-spacing:1px; font-family:'Space Grotesk',sans-serif; border-radius:4px; text-align:left;">+ ADD ANOTHER CATEGORY</button>
+      </div>
+
+      <!-- Hard Never Rules section — matches app's neverSection style -->
+      <div style="margin:0 14px 14px; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; background:#fff8dc; padding:14px; border-radius:4px;">
+        <div style="font-size:13px; font-weight:900; letter-spacing:1.5px; color:#0a0a0a; text-transform:uppercase; margin-bottom:4px;">🚫 HARD "NEVER" RULES</div>
+        <div style="font-size:12px; color:#555; font-weight:500; line-height:1.5;">Anything here = automatic Nope. If Screend finds anything that violates this rule, it will tell you first thing to save you time on reading the full review.</div>
+      </div>
+
+      <!-- Save button row -->
+      <div style="padding:12px 14px 16px; display:flex; justify-content:flex-end; border-top:2px solid #eee;">
+        <div style="padding:12px 24px; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; background:#CCFF00; color:#0a0a0a; font-weight:900; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; border-radius:4px;">SAVE CRITERIA</div>
+      </div>
     </div>
 
-    <form id="waitlist-form" onsubmit="submitWaitlist(event)" style="display:flex; flex-direction:column; gap:12px;">
-      <div>
-        <label style="display:block; font-weight:900; font-family:'Space Grotesk',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#555; margin-bottom:6px;" for="waitlist-email">Your email address</label>
-        <input
-          id="waitlist-email"
-          type="email"
-          placeholder="you@example.com"
-          required
-          style="width:100%; box-sizing:border-box; font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; padding:10px 14px; border:2px solid #0a0a0a; border-radius:4px; background:#FFFBF0; color:#0a0a0a; outline:none;"
-        />
-        <p style="font-family:'Space Grotesk',sans-serif; font-size:11px; color:#888; margin:6px 0 0;">We'll only use your email to keep you in the loop about Screend. That's it.</p>
-      </div>
-      <div>
-        <button
-          type="submit"
-          id="waitlist-btn"
-          style="font-family:'Space Grotesk',sans-serif; font-weight:900; font-size:13px; letter-spacing:2px; text-transform:uppercase; padding:12px 28px; background:#FFE500; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; border-radius:4px; cursor:pointer; color:#0a0a0a;"
-        >
-          NOTIFY ME
-        </button>
-      </div>
-    </form>
+    <div style="font-family:'Share Tech Mono',monospace; font-size:10px; color:#aaa; letter-spacing:0.08em; text-align:center; line-height:1.7;">No two families are the same.<br>Your criteria shouldn't be either.</div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    © 2026 Screend — delacamp, LLC &nbsp;·&nbsp;
-    <a href="/privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="/terms.html">Terms</a> &nbsp;·&nbsp;
-    <button class="a" onclick="openContact()" style="color:#FFE500; text-decoration:underline; cursor:pointer; background:none; border:none; font-family:'Space Grotesk',sans-serif; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:0;">Contact Us</button>
-  </footer>
+</section>
 
-  <!-- Contact modal -->
-  <div class="modal-overlay" id="contact-modal" onclick="handleOverlayClick(event)">
-    <div class="modal">
-      <div class="modal-header">
-        <span class="modal-title">Contact Us</span>
-        <button class="modal-close" onclick="closeContact()">✕</button>
+<!-- TICKER BAND -->
+<div style="background:#0a0a0a; padding:11px 0; overflow:hidden; white-space:nowrap; border-bottom:3px solid #0a0a0a;">
+  <div style="display:flex; justify-content:center; flex-wrap:wrap;">
+    <span style="font-family:'Share Tech Mono',monospace; font-size:12px; color:#FFE500; letter-spacing:0.1em; padding:0 32px;">★ CUSTOM CRITERIA ★</span>
+    <span style="font-family:'Share Tech Mono',monospace; font-size:12px; color:#CCFF00; letter-spacing:0.1em; padding:0 32px;">★ AI REVIEWS ★</span>
+    <span style="font-family:'Share Tech Mono',monospace; font-size:12px; color:#00EAFF; letter-spacing:0.1em; padding:0 32px;">★ FAMILY LIBRARY ★</span>
+    <span style="font-family:'Share Tech Mono',monospace; font-size:12px; color:#FFE500; letter-spacing:0.1em; padding:0 32px;">★ VERDICT CARDS ★</span>
+    <span style="font-family:'Share Tech Mono',monospace; font-size:12px; color:#CCFF00; letter-spacing:0.1em; padding:0 32px;">★ KID REQUESTS ★</span>
+    <span style="font-family:'Share Tech Mono',monospace; font-size:12px; color:#00EAFF; letter-spacing:0.1em; padding:0 32px;">★ AGE GATING ★</span>
+  </div>
+</div>
+
+<!-- CORE FEATURE: Criteria Builder -->
+<section id="criteria" class="section-pad" style="background:#FFE500; border-bottom:3px solid #0a0a0a; padding:72px 48px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="feature-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:start;">
+
+      <!-- Left: explain -->
+      <div>
+        <div style="font-family:'Share Tech Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#7A6800; margin-bottom:14px; text-transform:uppercase;">The Core Feature</div>
+        <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:clamp(38px,4vw,58px); line-height:0.95; margin:0 0 24px; letter-spacing:-0.01em;">
+          CRITERIA BUILT<br>AROUND YOUR<br>
+          <span style="background:#0a0a0a; color:#FFE500; padding:2px 8px;">ACTUAL VALUES.</span>
+        </h2>
+        <p style="font-size:16px; line-height:1.65; color:#3A2E00; margin:0 0 16px; font-weight:500;">
+          Generic content ratings like PG-13, TV-MA, M, etc. are very broad and subjective, which means they work perfectly for no one. Screend lets you define exactly what you care about — and nothing you don't, so you can trust your values, not someone else's subjective opinion.
+        </p>
+        <p style="font-size:14px; line-height:1.65; color:#5A4800; font-weight:500;">
+          Write your own criteria in plain language. Set thresholds. Flag things to watch for. Every review runs against your list, not a studio's PR department.
+        </p>
+
+        <div style="margin-top:32px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:flex-start; gap:14px; background:#fff; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; padding:14px 16px; border-radius:4px;">
+            <div style="width:32px; height:32px; background:#0a0a0a; color:#FFE500; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; font-weight:900; border-radius:2px;">1</div>
+            <div>
+              <div style="font-size:14px; font-weight:800; margin-bottom:4px;">Define your family's standards</div>
+              <div style="font-size:13px; color:#555; line-height:1.5; font-weight:500;">Pick from common categories or write your own — language, themes, values, anything.</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:14px; background:#fff; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; padding:14px 16px; border-radius:4px;">
+            <div style="width:32px; height:32px; background:#0a0a0a; color:#FFE500; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; font-weight:900; border-radius:2px;">2</div>
+            <div>
+              <div style="font-size:14px; font-weight:800; margin-bottom:4px;">Screend reviews every title against your list</div>
+              <div style="font-size:13px; color:#555; line-height:1.5; font-weight:500;">Not a generic summary — a specific analysis based on exactly what you asked it to look for.</div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:14px; background:#fff; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; padding:14px 16px; border-radius:4px;">
+            <div style="width:32px; height:32px; background:#0a0a0a; color:#FFE500; display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; font-weight:900; border-radius:2px;">3</div>
+            <div>
+              <div style="font-size:14px; font-weight:800; margin-bottom:4px;">You make the final call</div>
+              <div style="font-size:13px; color:#555; line-height:1.5; font-weight:500;">Approve, approve with supervision, or decline. Add notes. Save it. Done.</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div id="contact-success" style="display:none;" class="modal-success">
-        ✓ Message sent! We'll get back to you soon. (And we can't wait to hear that joke.)
-      </div>
+      <!-- Right: diverse family criteria chips -->
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'Share Tech Mono',monospace; font-size:10px; letter-spacing:0.12em; color:#7A6800; margin-bottom:2px; text-transform:uppercase;">Real families. Real criteria.</div>
 
-      <div id="contact-form-wrap">
-        <div class="modal-fields">
-          <div>
-            <label class="field-label" for="c-name">Name <span class="field-required">*</span></label>
-            <input id="c-name" type="text" placeholder="Your name" />
+        <div style="background:#fff; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; padding:16px; border-radius:4px;">
+          <div style="font-family:'Share Tech Mono',monospace; font-size:10px; color:#aaa; letter-spacing:0.1em; margin-bottom:10px; text-transform:uppercase;">Family A · 3 Kids</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">Buddhist values</span>
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">No jump scares</span>
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">No bloody violence</span>
+            <span style="background:#FFE500; border:2px solid #0a0a0a; box-shadow:2px 2px 0 #0a0a0a; padding:5px 10px; font-size:12px; font-weight:900; border-radius:4px;">+ 4 more</span>
           </div>
-          <div>
-            <label class="field-label" for="c-email">Email <span class="field-required">*</span></label>
-            <input id="c-email" type="email" placeholder="Your email address" />
+        </div>
+
+        <div style="background:#fff; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; padding:16px; border-radius:4px; margin-left:20px;">
+          <div style="font-family:'Share Tech Mono',monospace; font-size:10px; color:#aaa; letter-spacing:0.1em; margin-bottom:10px; text-transform:uppercase;">Family B · 2 Kids</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">Christian ethics</span>
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">No occult themes</span>
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">Flag drug use</span>
+            <span style="background:#FFE500; border:2px solid #0a0a0a; box-shadow:2px 2px 0 #0a0a0a; padding:5px 10px; font-size:12px; font-weight:900; border-radius:4px;">+ 6 more</span>
           </div>
-          <div>
-            <label class="field-label" for="c-message">Message <span class="field-required">*</span></label>
-            <textarea id="c-message" rows="4" placeholder="Your message"></textarea>
+        </div>
+
+        <div style="background:#fff; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; padding:16px; border-radius:4px;">
+          <div style="font-family:'Share Tech Mono',monospace; font-size:10px; color:#aaa; letter-spacing:0.1em; margin-bottom:10px; text-transform:uppercase;">Family C · 4 Kids</div>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">Parental divorce</span>
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">Body image themes</span>
+            <span style="background:#FFFBF0; border:2px solid #0a0a0a; padding:5px 10px; font-size:12px; font-weight:700; border-radius:4px;">Scary scenes</span>
+            <span style="background:#FFE500; border:2px solid #0a0a0a; box-shadow:2px 2px 0 #0a0a0a; padding:5px 10px; font-size:12px; font-weight:900; border-radius:4px;">+ 8 more</span>
           </div>
-          <div>
-            <label class="field-label" for="c-joke">Dad Joke <span class="field-optional">(optional but encouraged 🎤)</span></label>
-            <textarea id="c-joke" rows="2" placeholder="Your best dad joke goes here..."></textarea>
-          </div>
-          <p id="contact-error" class="modal-error" style="display:none;">Please fill in your name, email, and message.</p>
-          <button class="modal-submit" id="contact-btn" onclick="submitContact()">SEND MESSAGE</button>
+        </div>
+
+        <div style="background:#0a0a0a; color:#FFE500; border:2px solid #0a0a0a; padding:16px; border-radius:4px; margin-top:4px;">
+          <div style="font-family:'Share Tech Mono',monospace; font-size:11px; letter-spacing:0.08em; margin-bottom:6px; font-weight:700;">YOUR FAMILY IS NEXT.</div>
+          <div style="font-size:13px; color:#C8B900; line-height:1.55; font-weight:500;">Every criterion is yours to name, yours to define, and yours to update whenever your family changes.</div>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <script>
-    /* ── Waitlist form ── */
-    async function submitWaitlist(e) {
-      e.preventDefault();
-      var email = document.getElementById('waitlist-email').value.trim();
-      var btn   = document.getElementById('waitlist-btn');
-      var errEl = document.getElementById('waitlist-error');
-      var okEl  = document.getElementById('waitlist-success');
-      errEl.style.display = 'none';
-      okEl.style.display  = 'none';
-      btn.textContent = 'SENDING...';
-      btn.disabled = true;
-      try {
-        var res = await fetch('https://sqinmxsssbitqdpfyjmp.supabase.co/functions/v1/join-waitlist', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: email }),
-        });
-        if (!res.ok) throw new Error('server error');
-        okEl.style.display = 'block';
-        document.getElementById('waitlist-form').reset();
-      } catch (err) {
-        errEl.style.display = 'block';
-      } finally {
-        btn.textContent = 'NOTIFY ME';
-        btn.disabled = false;
-      }
+<!-- SECONDARY FEATURES -->
+<section class="section-pad" style="background:#FFFBF0; border-bottom:3px solid #0a0a0a; padding:72px 48px;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div style="margin-bottom:48px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Share Tech Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#aaa; margin-bottom:10px; text-transform:uppercase;">Everything Else</div>
+        <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:clamp(30px,3.5vw,48px); line-height:1; margin:0; letter-spacing:-0.01em;">THE REST OF THE SYSTEM.</h2>
+      </div>
+      <p style="font-size:14px; color:#777; max-width:360px; line-height:1.65; margin:0; font-weight:500;">Once your criteria are set, everything else clicks into place. Screend handles the whole family workflow.</p>
+    </div>
+
+    <!-- Asymmetric feature grid -->
+    <div class="asym-grid" style="display:grid; grid-template-columns:1.4fr 1fr 1fr; grid-template-rows:auto auto; gap:0; border:3px solid #0a0a0a; border-radius:4px; overflow:hidden;">
+
+      <!-- Feature 1: Family Library - spans 2 rows -->
+      <div class="feat-1" style="grid-row:1/3; border-right:3px solid #0a0a0a; padding:32px; background:#fff; display:flex; flex-direction:column; gap:16px;">
+        <div style="width:48px; height:48px; background:#FFE500; border:2px solid #0a0a0a; box-shadow:3px 3px 0 #0a0a0a; display:flex; align-items:center; justify-content:center; font-size:22px; border-radius:4px;">📚</div>
+        <div>
+          <div style="font-family:'Rajdhani',sans-serif; font-size:24px; font-weight:700; margin-bottom:8px; letter-spacing:0.04em;">FAMILY LIBRARY</div>
+          <p style="font-size:13px; line-height:1.65; color:#555; margin:0 0 16px; font-weight:500;">Every verdict, review, and note saved in one place. Parents and kids both see at a glance what's approved, supervised, or off the table.</p>
+        </div>
+        <!-- Mini library mockup using actual app verdict colors -->
+        <div style="border:2px solid #0a0a0a; background:#FFFBF0; padding:10px; display:flex; flex-direction:column; gap:6px; border-radius:4px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:7px 10px; background:#fff; border:2px solid #0a0a0a; border-radius:4px;">
+            <span style="font-size:13px; font-weight:700;">🎬 Moana 2</span>
+            <span style="background:#CCFF00; color:#0a0a0a; font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:900; padding:3px 8px; border:2px solid #0a0a0a; border-radius:4px; letter-spacing:0.5px;">✅ YES!</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:7px 10px; background:#fff; border:2px solid #0a0a0a; border-radius:4px;">
+            <span style="font-size:13px; font-weight:700;">📚 The Hunger Games</span>
+            <span style="background:#00EAFF; color:#0a0a0a; font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:900; padding:3px 8px; border:2px solid #0a0a0a; border-radius:4px; letter-spacing:0.5px;">WITH ME</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; padding:7px 10px; background:#fff; border:2px solid #0a0a0a; border-radius:4px;">
+            <span style="font-size:13px; font-weight:700;">🎮 Grand Theft Auto VI</span>
+            <span style="background:#FF2D78; color:#fff; font-family:'Space Grotesk',sans-serif; font-size:10px; font-weight:900; padding:3px 8px; border:2px solid #0a0a0a; border-radius:4px; letter-spacing:0.5px;">✕ NOPE</span>
+          </div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:auto; justify-content:center;">
+          <span style="font-size:12px; font-weight:700; background:#FFFBF0; border:2px solid #0a0a0a; padding:4px 10px; border-radius:4px;">Emoji reactions</span>
+          <span style="font-size:12px; font-weight:700; background:#FFFBF0; border:2px solid #0a0a0a; padding:4px 10px; border-radius:4px;">Parent notes</span>
+          <span style="font-size:12px; font-weight:700; background:#FFFBF0; border:2px solid #0a0a0a; padding:4px 10px; border-radius:4px;">Full Review</span>
+        </div>
+      </div>
+
+      <!-- Feature 2: Kid Requests -->
+      <div class="feat-2" style="border-right:3px solid #0a0a0a; border-bottom:3px solid #0a0a0a; padding:28px; background:#fff8dc;">
+        <div style="width:44px; height:44px; background:#FFE500; border:2px solid #0a0a0a; box-shadow:3px 3px 0 #0a0a0a; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; border-radius:4px;">✋</div>
+        <div style="font-family:'Rajdhani',sans-serif; font-size:21px; font-weight:700; margin-bottom:8px; letter-spacing:0.04em;">KIDS CAN REQUEST</div>
+        <p style="font-size:13px; line-height:1.6; color:#555; margin:0 0 12px; font-weight:500;">Kids submit titles from their own app view. They can even appeal a decision with a note — and parents get notified to reconsider.</p>
+        <div style="background:#fff; border:2px solid #0a0a0a; padding:10px 12px; font-size:12px; font-weight:600; color:#0a0a0a; line-height:1.7; border-radius:4px;">
+          📥 New request:<br><strong>Inside Out 2</strong><br>
+          <span style="color:#888; font-size:11px;">"Can we watch this one, please?"</span>
+        </div>
+      </div>
+
+      <!-- Feature 3: Per-child verdicts -->
+      <div style="border-bottom:3px solid #0a0a0a; padding:28px; background:#FFFBF0;">
+        <div style="width:44px; height:44px; background:#CCFF00; border:2px solid #0a0a0a; box-shadow:3px 3px 0 #0a0a0a; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; border-radius:4px;">👦</div>
+        <div style="font-family:'Rajdhani',sans-serif; font-size:21px; font-weight:700; margin-bottom:8px; letter-spacing:0.04em;">PER-CHILD VERDICTS</div>
+        <p style="font-size:13px; line-height:1.6; color:#555; margin:0 0 12px; font-weight:500;">One title, different calls for different kids. Fine for your 14-year-old doesn't have to mean fine for your 7-year-old.</p>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:2px solid #0a0a0a; padding:5px 10px; border-radius:4px;">
+            <span style="font-size:12px; font-weight:700;">Tommy · age 11</span>
+            <span style="background:#CCFF00; color:#0a0a0a; font-size:10px; font-weight:900; padding:2px 7px; border:2px solid #0a0a0a; border-radius:4px;">✅ YES!</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:2px solid #0a0a0a; padding:5px 10px; border-radius:4px;">
+            <span style="font-size:12px; font-weight:700;">Sarah · age 6</span>
+            <span style="background:#00EAFF; color:#0a0a0a; font-size:10px; font-weight:900; padding:2px 7px; border:2px solid #0a0a0a; border-radius:4px;">WITH ME</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4: Shareable cards -->
+      <div class="feat-4" style="border-right:3px solid #0a0a0a; padding:28px; background:#FFFBF0;">
+        <div style="width:44px; height:44px; background:#0a0a0a; border:2px solid #0a0a0a; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; border-radius:4px;">🪪</div>
+        <div style="font-family:'Rajdhani',sans-serif; font-size:21px; font-weight:700; margin-bottom:8px; letter-spacing:0.04em;">SHAREABLE CARDS</div>
+        <p style="font-size:13px; line-height:1.6; color:#555; margin:0; font-weight:500;">Share a verdict card with grandparents or friends so anyone hosting your kid knows exactly what's been approved for them.</p>
+      </div>
+
+      <!-- Feature 5: AI does the work -->
+      <div style="padding:28px; background:#FFFBF0;">
+        <div style="width:44px; height:44px; background:#0a0a0a; border:2px solid #0a0a0a; display:flex; align-items:center; justify-content:center; font-size:20px; margin-bottom:14px; border-radius:4px;">🤖</div>
+        <div style="font-family:'Rajdhani',sans-serif; font-size:21px; font-weight:700; margin-bottom:8px; letter-spacing:0.04em;">SCREEND DOES THE WORK</div>
+        <p style="font-size:13px; line-height:1.6; color:#555; margin:0; font-weight:500;">No reading reviews on 5 different sites. Screend pulls a full analysis in seconds, matched against your criteria, not a generic checklist.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad" style="background:#FFFBF0; border-bottom:3px solid #0a0a0a; padding:72px 48px;">
+  <div style="max-width:820px; margin:0 auto;">
+    <div style="font-family:'Share Tech Mono',monospace; font-size:10px; letter-spacing:0.15em; color:#aaa; margin-bottom:10px; text-transform:uppercase;">Questions?</div>
+    <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:clamp(30px,3.5vw,48px); line-height:1; margin:0 0 32px; letter-spacing:-0.01em;">HOW SCREEND WORKS.</h2>
+
+    <details class="faq">
+      <summary>What is Screend?</summary>
+      <div class="faq-a">Screend is a content-review app for parents. You set the standards that matter to your family, and Screend's AI checks movies, TV shows, video games, and books against them — so you can decide ahead of time what your kids can watch, read, or play.</div>
+    </details>
+
+    <details class="faq">
+      <summary>What can Screend review?</summary>
+      <div class="faq-a">Movies, TV shows, video games, and books. Add any title and Screend reviews it against your family's criteria, then saves the result to your family library so everyone can see what's approved.</div>
+    </details>
+
+    <details class="faq">
+      <summary>How does the AI review work?</summary>
+      <div class="faq-a">When you add a title, Screend sends it to our AI reviewer along with your family's criteria. The AI analyzes the content — language, themes, violence, and anything else you've asked about — and writes a clear, structured summary. You read it and set the final verdict. The AI never decides for you; that's always your call.</div>
+    </details>
+
+    <details class="faq">
+      <summary>Can I customize what gets reviewed?</summary>
+      <div class="faq-a">Yes — that's the heart of Screend. Turn on the categories you care about (like language, violence, or scary scenes), write your own in plain language, and set hard "never" rules that are an automatic no. Every review runs against your list, not a generic rating like PG-13 — and you can update it anytime as your kids grow.</div>
+    </details>
+
+    <details class="faq">
+      <summary>What do the verdicts mean?</summary>
+      <div class="faq-a">Every title gets one of three verdicts: Yes! (good to go), With Me (okay if a parent is watching too), or Nope (not for our family). With age-gating turned on, you can even set a different verdict for each child on the same title.</div>
+    </details>
+
+    <details class="faq">
+      <summary>Can my kids use Screend too?</summary>
+      <div class="faq-a">Yes. Kids log in with their own name and a PIN, where they can request new titles and appeal a decision — but they can't edit or delete anything. You stay in control of every verdict, and with age-gating on, each child only sees the titles you've reviewed for them.</div>
+    </details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is Screend?", "acceptedAnswer": { "@type": "Answer", "text": "Screend is a content-review app for parents. You set the standards that matter to your family, and Screend's AI checks movies, TV shows, video games, and books against them — so you can decide ahead of time what your kids can watch, read, or play." } },
+    { "@type": "Question", "name": "What can Screend review?", "acceptedAnswer": { "@type": "Answer", "text": "Movies, TV shows, video games, and books. Add any title and Screend reviews it against your family's criteria, then saves the result to your family library so everyone can see what's approved." } },
+    { "@type": "Question", "name": "How does the AI review work?", "acceptedAnswer": { "@type": "Answer", "text": "When you add a title, Screend sends it to our AI reviewer along with your family's criteria. The AI analyzes the content — language, themes, violence, and anything else you've asked about — and writes a clear, structured summary. You read it and set the final verdict. The AI never decides for you; that's always your call." } },
+    { "@type": "Question", "name": "Can I customize what gets reviewed?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — that's the heart of Screend. Turn on the categories you care about (like language, violence, or scary scenes), write your own in plain language, and set hard \"never\" rules that are an automatic no. Every review runs against your list, not a generic rating like PG-13 — and you can update it anytime as your kids grow." } },
+    { "@type": "Question", "name": "What do the verdicts mean?", "acceptedAnswer": { "@type": "Answer", "text": "Every title gets one of three verdicts: Yes! (good to go), With Me (okay if a parent is watching too), or Nope (not for our family). With age-gating turned on, you can even set a different verdict for each child on the same title." } },
+    { "@type": "Question", "name": "Can my kids use Screend too?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Kids log in with their own name and a PIN, where they can request new titles and appeal a decision — but they can't edit or delete anything. You stay in control of every verdict, and with age-gating on, each child only sees the titles you've reviewed for them." } }
+  ]
+}
+</script>
+
+<!-- CTA -->
+<section class="cta-section" style="background:#0a0a0a; padding:80px 48px; border-bottom:3px solid #0a0a0a;">
+  <div class="cta-grid" style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
+    <div>
+      <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:clamp(38px,5vw,62px); line-height:0.95; margin:0 0 24px; letter-spacing:-0.01em; color:#FFE500;">
+        KNOW WHAT YOUR FAMILY<br>WATCHES, READS &amp; PLAYS.
+      </h2>
+      <p style="font-size:16px; color:#aaa; line-height:1.65; margin:0; max-width:480px; font-weight:500;">
+        Set your criteria. Adjust as needed. Let Screend handle the research. Spend less time reading reviews and more time enjoying things together.
+      </p>
+    </div>
+    <div class="cta-buttons" style="display:flex; flex-direction:column; gap:12px; min-width:210px;">
+      <div style="display:block; text-align:center; background:#333; color:#888; font-size:13px; font-weight:900; padding:15px 24px; border:2px solid #555; letter-spacing:0.1em; text-transform:uppercase; border-radius:4px;">
+        📱 APP STORE<br><span style="font-size:10px; color:#666; letter-spacing:0.15em; font-weight:700;">COMING SOON</span>
+      </div>
+      <div style="display:block; text-align:center; background:#333; color:#888; font-size:13px; font-weight:900; padding:15px 24px; border:2px solid #555; letter-spacing:0.1em; text-transform:uppercase; border-radius:4px;">
+        🤖 GOOGLE PLAY<br><span style="font-size:10px; color:#666; letter-spacing:0.15em; font-weight:700;">COMING SOON</span>
+      </div>
+      <button onclick="document.getElementById('notify-modal').style.display='flex'" style="display:block; width:100%; text-align:center; background:#FFE500; color:#0a0a0a; font-size:14px; font-weight:900; padding:14px 24px; border:2px solid #FFE500; box-shadow:4px 4px 0 #FFE500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; font-family:'Space Grotesk',sans-serif; border-radius:4px; margin-top:4px;">Notify Me When It's Showtime!</button>
+    </div>
+  </div>
+</section>
+
+<!-- NOTIFY ME MODAL -->
+<div id="notify-modal" onclick="if(event.target===this)this.style.display='none'" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:24px;">
+  <div style="background:#FFFBF0; border:3px solid #0a0a0a; box-shadow:6px 6px 0 #0a0a0a; border-radius:4px; padding:32px 28px; width:100%; max-width:480px; position:relative; font-family:'Space Grotesk',sans-serif;">
+
+    <!-- Close -->
+    <button onclick="document.getElementById('notify-modal').style.display='none'" style="position:absolute; top:14px; right:16px; background:none; border:none; font-size:20px; cursor:pointer; color:#aaa; font-family:'Space Grotesk',sans-serif; line-height:1;">✕</button>
+
+    <div id="notify-form-wrap">
+      <h2 style="font-size:22px; font-weight:900; color:#0a0a0a; margin:0 0 10px; letter-spacing:0.02em;">BE THE FIRST TO KNOW</h2>
+      <p style="font-size:14px; font-weight:500; color:#333; line-height:1.65; margin:0 0 24px;">Screend is coming soon. Enter your email and we'll let you know when it's ready for your family.</p>
+
+      <label style="display:block; font-size:10px; font-weight:800; letter-spacing:0.15em; color:#888; text-transform:uppercase; margin-bottom:8px;">YOUR EMAIL ADDRESS</label>
+      <input id="notify-email" type="email" placeholder="you@example.com" style="width:100%; padding:12px 14px; border:2px solid #0a0a0a; background:#fff; font-size:14px; font-weight:500; font-family:'Space Grotesk',sans-serif; color:#0a0a0a; outline:none; border-radius:4px; box-sizing:border-box; margin-bottom:8px;" />
+      <p style="font-size:12px; color:#aaa; font-weight:500; margin:0 0 20px; line-height:1.5;">We'll only use your email to keep you in the loop about Screend. That's it.</p>
+
+      <p id="notify-error" style="display:none; font-size:13px; font-weight:700; color:#661d1d; background:#ffeded; border:2px solid #ff4949; border-radius:4px; padding:10px 12px; margin:0 0 14px; line-height:1.4;"></p>
+      <button id="notify-btn" onclick="submitWaitlist()" style="padding:13px 28px; background:#FFE500; color:#0a0a0a; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; font-size:14px; font-weight:900; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; font-family:'Space Grotesk',sans-serif; border-radius:4px;">Notify Me When It's Showtime!</button>
+    </div>
+
+    <div id="notify-thanks" style="display:none; text-align:center; padding:16px 0;">
+      <div style="font-size:40px; margin-bottom:16px;">🎉</div>
+      <h2 style="font-size:22px; font-weight:900; color:#0a0a0a; margin:0 0 10px;">YOU'RE ON THE LIST!</h2>
+      <p style="font-size:14px; font-weight:500; color:#555; line-height:1.65; margin:0 0 24px;">We'll reach out as soon as Screend is ready for your family.</p>
+      <button onclick="document.getElementById('notify-modal').style.display='none'; document.getElementById('notify-form-wrap').style.display='block'; document.getElementById('notify-thanks').style.display='none'; document.getElementById('notify-email').value='';" style="padding:11px 24px; background:#0a0a0a; color:#FFE500; border:2px solid #0a0a0a; font-size:13px; font-weight:900; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; font-family:'Space Grotesk',sans-serif; border-radius:4px;">CLOSE</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#0a0a0a; padding:20px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+  <div style="display:flex; align-items:center; gap:8px;">
+    <img src="logo.png" alt="" style="width:24px; height:24px; object-fit:contain; opacity:0.7;" />
+    <span style="font-family:'Rajdhani',sans-serif; font-size:18px; font-weight:700; color:#FFE500; letter-spacing:0.1em;">SCREEND</span>
+  </div>
+  <div style="font-family:'Share Tech Mono',monospace; font-size:11px; color:#444; letter-spacing:0.08em;">Know what your family watches, reads, and plays.</div>
+  <div style="display:flex; gap:20px;">
+    <a href="/privacy.html" style="font-family:'Share Tech Mono',monospace; font-size:11px; color:#444; text-decoration:none; letter-spacing:0.06em;">Privacy</a>
+    <a href="/terms.html" style="font-family:'Share Tech Mono',monospace; font-size:11px; color:#444; text-decoration:none; letter-spacing:0.06em;">Terms</a>
+    <a href="mailto:hello@screendmedia.app" style="font-family:'Share Tech Mono',monospace; font-size:11px; color:#444; text-decoration:none; letter-spacing:0.06em;">Contact</a>
+  </div>
+</footer>
+
+<script>
+  /* Waitlist signup — posts to the same Supabase function the previous page used,
+     so signups land in the existing waitlist and trigger the confirmation email. */
+  async function submitWaitlist() {
+    var input = document.getElementById('notify-email');
+    var email = input.value.trim();
+    var btn   = document.getElementById('notify-btn');
+    var errEl = document.getElementById('notify-error');
+    errEl.style.display = 'none';
+    // Basic email shape check before hitting the server
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
     }
-
-    /* ── Contact modal ── */
-    function openContact() {
-      document.getElementById('contact-modal').classList.add('open');
+    btn.textContent = 'SENDING...';
+    btn.disabled = true;
+    try {
+      var res = await fetch('https://sqinmxsssbitqdpfyjmp.supabase.co/functions/v1/join-waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      });
+      if (!res.ok) throw new Error('server error');
+      document.getElementById('notify-form-wrap').style.display = 'none';
+      document.getElementById('notify-thanks').style.display = 'block';
+      input.value = '';
+    } catch (err) {
+      errEl.textContent = 'Something went wrong. Please try again.';
+      errEl.style.display = 'block';
+      btn.textContent = "Notify Me When It's Showtime!";
+      btn.disabled = false;
     }
-
-    function closeContact() {
-      document.getElementById('contact-modal').classList.remove('open');
-    }
-
-    function handleOverlayClick(e) {
-      if (e.target === document.getElementById('contact-modal')) closeContact();
-    }
-
-    async function submitContact() {
-      var name    = document.getElementById('c-name').value.trim();
-      var email   = document.getElementById('c-email').value.trim();
-      var message = document.getElementById('c-message').value.trim();
-      var dadJoke = document.getElementById('c-joke').value.trim();
-      var errEl   = document.getElementById('contact-error');
-      var btn     = document.getElementById('contact-btn');
-
-      errEl.style.display = 'none';
-      if (!name || !email || !message) {
-        errEl.style.display = 'block';
-        return;
-      }
-
-      btn.textContent = 'SENDING...';
-      btn.disabled = true;
-
-      try {
-        var res = await fetch('https://sqinmxsssbitqdpfyjmp.supabase.co/functions/v1/contact-us', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message, dadJoke }),
-        });
-        if (!res.ok) throw new Error('server error');
-        document.getElementById('contact-form-wrap').style.display = 'none';
-        document.getElementById('contact-success').style.display = 'block';
-      } catch (err) {
-        errEl.textContent = 'Something went wrong. Please try again.';
-        errEl.style.display = 'block';
-        btn.textContent = 'SEND MESSAGE';
-        btn.disabled = false;
-      }
-    }
-  </script>
+  }
+</script>
 
 </body>
 </html>
