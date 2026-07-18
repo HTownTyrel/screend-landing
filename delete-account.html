@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Account &amp; Data — Screend</title>
+  <meta name="description" content="How to delete your Screend account and all associated data, and what gets removed." />
+  <style>
+    :root{
+      --yellow:#FFE500; --ink:#0a0a0a; --cream:#FFFBF0; --pink:#FF2D78; --muted:#555;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; background:var(--cream); color:var(--ink);
+      font-family:'Space Grotesk','Segoe UI',system-ui,sans-serif;
+      line-height:1.6; padding:24px;
+    }
+    .wrap{max-width:760px; margin:0 auto;}
+    header.brand{
+      display:flex; align-items:center; gap:12px; margin-bottom:8px;
+    }
+    header.brand .logo{height:48px; width:auto; display:block;}
+    header.brand .name{font-size:28px; font-weight:900; letter-spacing:3px; text-transform:uppercase;}
+    h1{
+      font-size:30px; font-weight:900; letter-spacing:1px; margin:24px 0 4px;
+    }
+    .sub{color:var(--muted); font-weight:600; margin-bottom:28px;}
+    .card{
+      background:#fff; border:3px solid var(--ink); box-shadow:6px 6px 0 var(--ink);
+      border-radius:4px; padding:24px 28px; margin-bottom:24px;
+    }
+    h2{
+      font-size:15px; font-weight:900; letter-spacing:2px; text-transform:uppercase;
+      margin:0 0 14px; display:inline-block; background:var(--yellow);
+      border:2px solid var(--ink); padding:4px 12px;
+    }
+    ol,ul{margin:0 0 0 2px; padding-left:22px;}
+    li{margin-bottom:10px;}
+    strong{font-weight:800;}
+    .email{
+      font-family:'Share Tech Mono',ui-monospace,monospace; font-weight:700;
+      background:var(--yellow); padding:1px 6px; border:1px solid var(--ink);
+    }
+    .note{font-size:14px; color:var(--muted);}
+    footer{
+      margin-top:8px; font-size:13px; color:var(--muted); text-align:center;
+    }
+    footer a{color:var(--ink); font-weight:700;}
+    @media (max-width:520px){
+      .card{padding:20px; box-shadow:4px 4px 0 var(--ink);}
+      h1{font-size:24px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand">
+      <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABgCAYAAAB7YK6NAAAk8UlEQVR42u19ebwtV1Xmt9beNZzhzm/OS0jCE/ARIDEMDYQ8JGGyTRAkahOGBkJLpFESQbDtEECECCjadKJg0y1ECGM6AYkhjAFRaQTpVgaBJGR8853vPedU7b1W/7Gr6tQ5d3wJQTSvfr96975zzq2za+211/rWt9baRXhgHgSAi98FgOL48WMT/GZeO37cH4InAFOt1pMnW2Pn7tmzJzk+AT8ewdPExMRYGqc3JjbSxEbaTJKvNZvNneX7x8V0/xwWAJpp89XMRgFkADLDrK0oeVP9Mz/WAT2ADobgJCh84WRVVXMQ7S7e1+PCv//MjhhjUjgwFIaIYIyBYdz4QDcLplAGcz9dG1ONkfMbUbJs2Ghi4x824uTr7bT5Ww90e0/386Ri+8jk4xpJMmeZtRU3r9y7d2+b6Lh/JQBotVpPaafNy8Ya7WfX0cl9tvEAdk5MnNSKk9vZGG3E6efOPPPMqPYd5oEqeAaA0UbrlbGN1BqjDRtpK2n8bv39+3Bt2rt1a3uk2fqqNUabSfKtU7dv3/YjuPa/DY3funVruxGl94BICOgC8KmN5u6jkAiAUSiNNdvXW2M0tvbw9tbEw48Lvib8kZGRqZijWRA5AjIi8rGxS7vSiRMLIfG9RXGjafudiY00MtY14vi8Byi8Xt/sNKP0KsNGQaQg0shGvW0jI4+/l8KyALClPfGfkiRWa4yOxOlrjgt+jZB/3759tpEkr0xt9JeRMbcba7QZxz84YcuWn6ojls0im22jo09tJGknslbbafquY7zGA3cmHrR1645WknzVEmszTb9z4tTUrk3aaQMAO6emHtZM00PWsLaj+MYLLrjAlM73uITXcZClWXjwxMSJDRv9gJm1FSdf2zO5Z7Qm4PJzthaUWQDYPTo6OZI2/tGw0YaN/2nXyMjUEHd//NiMBm9tjp2e2uiwMUZHG62/rGHzVY99+/bZVtq4kY3RJIqPTLYn9/6kmxv6CWYg3WRr9KlLWefDXmQiMvb97Ub6zk4nO5kNdqtSQ8TlhqMDUWxuWe5mL8vy7GXMtJDE8QsWO53rC8H74/p8L1BQEYD9D2OMZ8OaxLFG1qo1pjojazWOIjXMSkQ+TZJPrHad48cxmJ0TJid3jzXbV8fWLhGRgAINTEQegANRXpwOVL0uURR1R5qtj4+NjZ1yfALuheAn2u2zWnFypzUcsH8QuhKRFD9XPcvPGTbaiJP9E2n7iQ8kmEk1dMFroJM6SqlDQAaAsWbz9CSK5hASG3mZ9BgW8HrCJ6KcmDW10cGdExMnDfk3qo3NrjM2U7uPnwjKebWBm/u6tIkIF+ACs6e9Y6s15uuFIPNhQW9G8NVPptwyaytJr52amho5E4joR+OLzDoKdL+gnfIL1kUOe/fuje/49h2jFGcTjaiVLki3RSJjxsTbnLoRUhqDylYiGhHxbVVtM/GYAC0AEaBbM+d2iIiGOekPT1VBRNXP+uvrHBpZS0R0B6kugnhZoV1VLBBolpkXLXPPq+8w2QMc8azP89yJHDXGHGbmjiwtzba3bp39tcOHl98YanzWM5mK9T9zTMIvl5uUwj10550n5yInwbmTRXBirn63I2wl0HYoplR1DNARJo5FhaDhClplSLVMngZhAlCV/lCCNKlcEQOSVL036qXQ/n0SUXlxQMMPIgrfRQSVIDtihqqqii4aw/NQPcrMB9mYI965OyLm29iY22Jjbnv4z/zMbTfffLOrKapuJh9MG7ynADDVaDy6m7mXZIRzmOlkEYmhClWFaClOlHKuC0mHzrW+m9ZKoJTaXp+M+ioYHOmah9Sup0PjW0vhwkkEFN9XTZICTARiAoCeYb7VEn0xouh9052Fr2KTo6L1BP+gBz0ond5/8O097y524o30By0olLa4PA0JEAgaVerZuvb+GJwDsIH2r7Y66pMVlsGmV5SiXLjh77VaTeU9KzFBYYnBzGqj6H/GjfQ3Z2Zm5jalFqvN/J49e0bbjeZnI2NKO5YT4AkQJlImUmauTmOMGmOU2SgTK4F0Fc3/CTjLcZv+mE24BwqBmoKglXLVTiJSxqDjZ5AA8CHmgBhjtJmkf3vS2EkTG6EkWk3wFwB0Q5Je18mznxeRPHh2IiYDIoGXjX0KRYwojhBFBpGN0Gw30Wi3kSQJoiRCFEWI4whRmiJKY0RRhMhGsJGFMQZsTBgMA4TCxBSKJ6IQ76FO4L1Ht9dDt9tBt9NF1ukhzzP0ej30ehmWFpfQ6/YgXuCyHFk3hzi/of4Zw5DiPldbGaX5UeiAOQSQMXMcR/HHe1nvuarKazlhWo1TaSfJy3q5e08uPg8oBGDuDyZpp5iYnEB7tIWRiTGMb5nA6PgIxsbGMTI6gtHxMYxNTaDVaqGRJrBpjCiNkSQJTBRBbbCdzAxwUDOiIGRUZkhL11ytW6rZNKJ+fbFCAVHACyAClaAg3jn0uhl6WQ6X58iWO+guLGNmZhbzs/OYn5/H/Mwcjh6exvzMHBam5zA7M4fZ6TlI7gBwYelkc+ayGKgSXMTGjjYb5x9dWPjkWhzTCqd3wd690Se+971v9JzbW9yeKQU/tWMKv/TyC/GoM8/AyMQo4kYCG1uwZShTMI4KQAXqBSICVYJTDy8eKgqIQLTUKKkWddAaHTTplbQrJDTgJYWC6SUAYAKBYIgDLiaAicFswcwgDoI0hkDMABsYIpAoVACfe2S9HL3lZcwePIqbb/wCPnHNdXAdB2KqFG9Iywcdf//wDOI0ir6wnGfnFAhI1hM+A5AtzeYZc73s73NxBAUxGYh67Dp1F37vyt/Hjj0nYqG7CPEe3nmoFILVEkKigm0UnBAYJlSGUSEca4LmG4YhhuHwueCeqfg9XEdqXqu8SVWFikBFIcWkOlV4hElXUag4iBeIKLwInAo8BKK+73RVwUQwrGGcxoKYEEUWE+kYvnzDzXjLa98M13XFvEulHBvEGkpEFLHpptY8Yr7X+8FqE2CHhd9VfZxAGQoPIkMgmMjgFa97JXbsOQGHpo/AWAa8wMCAbYKmtbBRjMhaRFEEay0Sa2GtDTacDAxbsOG+uakwd1gx5c/VMBqVr5Q3XEOK5aSjPjGqEFWICMQLvDjkksPlDs455N4jy3PkeQ7nHMTlcN4j9w7iBN51sX+piyc98yl49j99Bx9+9zVgYwGRagzDAh9aAaSq3qukmdBjAGwo/HAPXh9drGZlJnjv8FN7H4JHPuZ0TM/NgSMLUmDntu2YGJtEnMQwxiBiG5Z2/+sHNXUA7gVhlcGVyhoQcDWoQINvlM448B5UgnMIE2AMKKYBy1UKSrQI2b2HiCDLHbpZD4ePHsbs3AyUgbnleTzxnLNx7fs/hrzjCvs/GGFX97TSDCnCdzwSwDUbFcpKmDE5TYIt5lIYD37oHthGBF1cAnnCSTt348RduytzAyDYcS9DMiqkRIWwB8w4VcKmAr8PBmnluzog8UEXEPxE6YS1iqQ1AMDKZSNMhurA6IjCCrTMMGmCRiPB+OgYvnvr93B0fhosOcZ3TmFqxxYcuG1/mGjoiqBv2AlTRTApSPGQ4UBvONlAAHT79u1Np3KCDix3YOeJu6DGQLwgNRG2bdmK3Hv4wqYG+17AwhKwVGF7IfANwi0FwApQdWpxAqwKBoFL4UpAN1T7PApTo8XEKmmYDCYoUbhW5Yvqggt+RTXAVybC9sktMACcKNqjbWzftb0f5A0FZ1qLfvsRdzCiEt4/9fLLLy9NDq0lfGC2uxXARKEhJMW1duzaAS1wXavZhDEWqgomrvDuetXthEEhDdvL0mwMLN96VFtA0nJmqXTOq8C9OlAt0ZcXgStQFtX634iG5EkB1aRJgtgmEBFESYQdu3asz8Gsck+l7gpw4rv/4A+m1k3XAUDX5JOq2iqWECkEYGByyxScBJiapimMMQN3usaX16VbnaSr0wYr/r4QshIqcyKFiaFVUEapzfWxOOcAAsbSUWxJJzESt4q4oO8rBq4BgqoUoCGGqA/3v3VqbTamxvkM8FDFh5Uw2RXZtdoFbP3FvNfbLiLQQCGwiCBpJWiPjSB3OYgIcZwM2rdNcDO6GXaPOZiTuuNa7UL1Ca8sweAYvHgwEyYbk5jvzuMzn/80Pnvdp7H91J245NWXYjFbgrKuQR8prLWIoxhYVngoxrdM1SidfuzBIDBTzZVQgL41P6qqLB7bVxP+gNmRKNqm4W6qv2+3W2iMtOC9AxMhilOoHlsHTSBDSvu7zue4r0EhQNNVA5rqdQKUCEJhVagKnHdopyNITYoPX/1BPPfJz8ILn/E8vP9P3wd1waavt0pVQ3CWRjGgYSInt00OsGzVDwWcD3GOFw/vXWGOC3tXxIyeaNt6ml/64+3VFBcaPTI2gka7EbSJGDayBc+y+VTMQECy3mpZVyh9s1VOZnkdBuBVAFVsb2zBN/7hG3jT696AL9/0JQBAFFn83h+/Bf/x4pdiJlsAGbOu8AEgiqOQyBDB2OgYwP33uDRZFjj7afvwiMc+CnEc43v/75/xmU98GtlyBkMGXn2Bx/zJG/Zkqfc7hx3e+NQ4bJogcwtIbQxro8LD3/uU4UarhMq7LFBOqULlX/qh6zjvEUcRUo5w5TvfhSsufyuWF5bBxGhNtPDf/uxdeNZznoNDvSOwZAEFBLJGlBp+xlEEUBB+s9mEjQxczxexjCIZaeE1b3kdznr6WcjEgZTwtOf+e+z7uXNwxW/9LmYPzvS5f/C29Rxu+EZDW+oQEwBGJ8cRxQbqFYYjRGSCbf4R5JMrGQ8whTpg0IKZKcxLwM8gDryQqiB3OdppC8tHF3DRL78Ur7/0MnQXMzAZTO6YwNXXfwDnPecXcLB7ONAY0IooG3TYNXJPgdhGYDLwXhCPNBA3kkrrvSied/HzcfZ5T8aB2YOYWZjG9MI09s/sx6POOh0vf80rANICtCi8+q2rub9B4StN9scShNsYacIahgpgjEXEZsOExmZLHKhGpKkWzOQqSCagHQ0MaMkyksL5DOONMdzyj9/DLz79Objho59CHKdQCJqjDfz5R67GvrN+Foc7RxHZCKyFvae1ViFVgZcxBkwML4Kk1UBztFU589GtYzj7aftwdPYIrDGIjIGxhDRKMTM3gzPOfgx2nnwCRKT0U1tWE76tvygiE8Phc7vVDoGICqwN/IyIvw/a3hdyiARDkMa6dpI8RGA0AAnzPMdUcwv+4atfxwt/8QU4dPdBxFEC8Q42Nvjv77sSTzjrLBxYPoQ4igKFoSHwwnoBXzHRxoaVICJIkgSNtNm3BmOjSBtxRY9IzUw69bBxgvb4SB8CAy1ChXJXVCVowca0CgFVZnd0dCSE4gpYa0H3wdwEwUsR7EkVuEFWzf9iRdK7svEOk81JfP2rf48Ln/28SvDeOzjv8NYr34rznvUsHOgcho2jyllrPR5cd/VKYGENQ6GIoghJElUKszAzh16nA+aSpghUiZIHQZAtdjB7dAal+xJB+/X9xDqtFmQ1CDo6HCyk7SZ8Ec1GHBUi21RyPkS1BXav6IOhySvZTCVACtioTIMn9ZeAcxnGG5P41je/hRc9+wU4uv8IrLEQFXjxuOQNl+LFL30pjnamkRgL8sE3CPUDomGTU6caSihrDPezWQaVzbfGYu7oPL782a9gy9hWeBcmPFdB7hQTo1vwtZv/DgfvOABDDFGBQtrvxe5kTbTTarXaWbc7WgidCtYXSbNRhevGcGUGNuNyteBnNMCGasqosvpDV6HhydEaPUfIxWEkHcPt/3wLXvjcC3F4/yFEkQ1JLJfjWc/7BfzO6y/DTHe2oq03UyFTRzpl0BZyESbgfsNIkqSSAxPhA1e+DyecsAtPeNqT0NMePICEY3zzr/8e7/3D91QUYEGdNDE638A8OsPCJwCaiMSZIhkeUJqklYEItAJtOrCqOJR6UASAlfuM52YmsIgcE5tg7sg0XvzLL8Ldt9wFYwIaUVE8+GGn4u3vfAeWpAtlrbD4ZuGvDjCeIX5lYythx1FUhqwAEZbnO3jTpW/E2c/ch9MffTrIWHzrm/+EL37qc8iWegVtrQXByCm7eG3NXxJJBbqiAcEmEXwxAGZT2JIqZbWO2Swi0Rp1XBIeUo8laEVd08AMhpsITiFFgotffhG+83+/AxvF8C4HM4ETi7df9U5MbtuCI53pgM60fg2sOdYVJF+RDyY2iNiAgocOyZSKhxIQMyQXfPH6z+OL13++tsZCVq6e91VolMUuxvJgrohrg4hVi8mojZOtLVjHfnpvw6Vc0sEFx1ySY9W8EOBUkBd0gKyloUQgMMQrtqRTeNfb/gg3XftpWGPgXA42Ft4LfvXSi3H2zz4Zh7tHYZkrB15GwuspyQpOvhCXIYJlDvAUBC6i4op8KZhYwwbMBswcLANpUfXW56aciFnudKK1I9ys9vlaFZq1diBvuZmlXFLEQ0wYAILzDkmSoMWtELBAMJ8tQCT4lOHr595hqjGBz/7VTXjHG94GZi6IMwPvcpzxuDPwm//lUsxkM4HqlmC3+0LXY0dktbwAEPK7xpq+F6rx9n4t2K0D9JoR1XijTNaKkVpra/z3xsJX6Eo9KrggUY+xxhgO3H0PPnrjNbjrh3fgYXt/Gj/3nPNAltHzITKtcrOqSKMU99x1Fy69+BK4zBfwLkTCaSvFFX98BRrtJuZ6izBkBpAWajSIoJ59Wt/flNCWqF6scmxc1DCToKp2beHHEOSrXS0M1BNDiQIruJ7zElR0QMjjSuW0xpI2PvDev8AfvvEduOfOu6q/Ofe863Dl//oTxOMJMpfDFEhFVNEyKS553Rtx9+13wxYO1lgL53K89JUX4bGPezwOdA8jstFQGlMCGaCAQhACV6pC5nqx05o3AoSKCNIh9DRsGqmfsNS1AreV88cDZqdIdQxgYNR6F2rcx6r+sWQeSztfQxANTvG2y96CV1/0Ktxz512hOq2odvjsJ2/CRc97MUxPYdlCVOG8x2Q6gQ9/8EO47oPXwhgLJ4HY8t7hlIeeit949W9gNp8LtnYNLSztaGWrZX2CT+vJobK2k9CvuKjnMjjUBWnBqBqyMLwqY6qUryya4prmr5pmlapcQms5yyGTskoer55tMmSwvLSMD1/z4fBVcQxXRKPO5YiiCF++6Uv4nUt+B6PRCLz3SKIEB/cfwBWXvQWkRem2oqogeM3lv4XJqS3ouV5gHmT1utpKyGXOF7quuai7CqmVsQ9rNDNDRSA+R3M0RWu8CS8OXnxYuTyQ5vQcU76m2UkA6dSSfKV9d95XdlJFVgh3RaSoOmBTiQhePdJ2A9dc91H8xst+Hd/8u2/AGgvnQwGTcw42inD1e96Ps845G+f/0nlgMN78+5fj7lvvhjURnM9hjIX3Dmc/fR9+4YLnYLo3C7aBZSWsNIfroeEV/NHwFFANOCiqKrtQHBec/o5Td+HCX30+HnLaQyA2wm3fvgUfeffV+OF3bwMbAxVfWgthWil87l+wkRNYhnN/ea+HghiFFzdgxNbnLGsTw4SO7+KnTnsoPnbT/8Y5558L5x2sMf3sVMEAvuW/vhnS9fiHr30DH/yzDxToxlWxRdJM8Nu/+18AG4TN4MKGy5D6D69M3kTA20dKPtxxEJ4qvHP9mh8R7H7wiXjbn/0hnvrcZ2DipK0Y3zWJs3/+yXjn+/4Ypz36NIj3oLKEkdm1qLm28COT9wDtDQ8w6/bAheOqV+3qenhH69xPmFJLjLnOHEwrwruvfi8e8dhHwnkHLihc7z2YGbd//4f4kz+4Cle9/Sp0l7t908UGXjwueP4F+HePeQLmuwswxty7bpXNUA2qIXouXnMur0SmDFz4n1+EbQ/ajsNHjsBlHpLlODxzBNHECC669Ndg06hm3Sh3JsqGaeWSaUO+HHUV2hm2491OB6ZAOSKycR8RccHTS7G0+8jFWka3t4TGaAvvuOodaLQbAyskTIDB29/8Ntxw3adAFHA/cVgdI2MjuPiSX8OiLoVoG8AxppMHO0zWXLshqnY+D/etgm63W1REZJjauQ2POvNRmFuagbGhL47BiK3F9PIcTnroyTjxlN1105bFpru25jfR7Ckq4kfLweXdHLZIYDrvajheVy8ZKZLagZyimudjQDmwgstH8egzH4dXvu5VRcDENTMhyHo5vPP9BBtbiAgueMEv4SEP+2ksZotgRr8UZTg5otRvKSFAicvuhqKNaYNUDwEqgPhQM6RO0e30jUK7kSBNEzjtR+5KBBJCqHdQRHFcA1uataJobeHvx/58wOyUEWYvR0i+SSGQlXWPg5SO9kvWap1CVLR7AITIGExns3jFq16BR5x5Grz3FWNaTmh/Ygnee4xNjuElr7gIy74LhimkM8gI1bmxqmJtoJSuSN7Ua4nWyLFJUeJOAFzukXWy6n4P3n0AB+85gEaUgrzAQIJfgMCQwdyRaRy4655aXahf2nH0aGe9oqkcoGz4A0tLi9WAc5dvysbSmji6DNsNvHdIWw1cctmr1+0PD5SD4Nm/8myc9rCHo5N1ApTTVZtqivFJn3+pn6Kh9FDKMsSiPl+Ha6K5KgUhIvg8R68b9JKNQbeT4dr3fxyjcQtkLbrikEkOEGFbawKf+tD1mD+6AGbWgBBp9mbADRdgD2RX2PDysFOYmZkt+BIKFWAbCJ9W1OCtXCWKsJPrTG8WT//5Z+Lsc/cV2m9WfF5EkTRiXPjS56Or3dCooDoAbErij8qOFWhI0dVKFFGhoX6suTps0IKzEYiEOp+sl6GztBRWdgEMPnPtp/Hut18JmxOmWhOYao+jTTE+9Kd/gWuvvjbkAoocBjHPbVSxplA+MszfLM7MI/MeIA417CJrRXEb8OSrmCkhkCFc8tuX4G++8BWI04GOQ2si5C7DOc98Kh55+hmYzeYDsyq6wvQpFGoIJLxOtBtMUOBztWiPC79KWd8nCmLAuRyiHoYNsqUOljvdgclmZnz0PR/B337uK9j7iIdDGfjBd7+P2759W6V8CigDMEQHNiwXNKDDvmh5LLVifmYWPs/BzHAuVGbZolCWNkHV1idg+G+MMZjvLeAJZz8Jzzj/mfjLj32ySJB4GGuQuxw2snjlb/46cnJr4nMqaGoVXb+xOPQKDVEwK/WfOCTovQhiw1haWEBWmJ16kt8w465b7sZdt9zdt+PGhJLB4p6ZGJbtfMnfrFkuqIamh4OsmelpZN0eLAehOOdwb7bBXdtXMBwJLnrVr8LGIeiykYV3HhwTrrjy93HGEx6LpWy5SFKsFFaVmiTCOqmBGrPdLxVf0YHNYWX0sgwCwLLB8uISXM+tCi6YQ7rRmAiGI4gfyrGGFXVwwyplVX/XsOp0lkKLZVkykuf5MVcw1HH18CQYYiz2FvD4Jz4ev/Ki/wDnHFzu8JDTHoprrv8QXvSyF2O+twBLBiRDja3VHidBmLwOfletCVy13qldNxN9ntHlYAKMtVhe7PS7zomGAsrgG7x3EPH962o9HYQ7Ny4XZD0MN2iblhaWsDS3hPaWNgCPbi+7T/ufrBAOAaSMbr6M1/3eZfBQnHTySXjJy1+CicktONKdKQq1pHCkNNQOUHVMAOuqxcq+2TpLQjW8qt4jy0IelokxfWSm/3kZrC2qJ991IGdAUFUOASfdvWHRVJzz/h48hMClTessdTFzdAa7H7Ybi1B0ut2B+pfhWvljyXb1lzqhKw7pRBN/9J53gUBY9AuY7k4jLihbpUHeSFUC5V52HZV55SLwoVVtU1Ehp1pubLFyfwcmOO/Ry/LATCrh8MFDK/zlevdZEHKK0IbvTUT70dtA+ImJDnjvvYMaKJSICV5w+OBhGAolGoudTr8DvQioBkr71qNrV2skK7wfk4GKw0xvBtBgjiyZojQwFLaGpuRSaxm1vrOiILVfIUGr2HwpK98Knmp4I42K/y3KvokZcIKD9xzYlNAHq+xK20/TCXBow1rNLMZhD8xWndTFLwfuuBuqAkOKXmcRvV63EJaGnizFOpuLrB1wkUoRAAlYBQYMwxbG2GqvFqWySIsqG9vH67VImqgouiocb3GWLUVquGAZB2cmKEAorFIvsGzR7XRDxowZWZ7j6IHDKzpwVrunAbqFQt2DAR86a3FxZkOHu7i4OKPAkSJhUUnx4J37AadgNnDeYf/B/QApbGRgDYM5NDcbhGw/aS0RrQr1oVORika2svIYVXAU6nhEa83UTAPmrV460GdNpR5JBQJDBCwSfIQKVHwIdrwPGL5QFiqoaCp38iKALdDNlnHPoQOhW50tuotdTB86smnTSjWMXwCNOz4aqtp5PbPDAJxhc4v38tD6Dic/+Pb30VvowUQRiIEjM9PIsgzjY6NI4qTYtCL04zJzhTzKDm+qakfKTGeR12U7WDtJq9SO08oFO1hLT/1+jhXtSrULcC3yFlSckXMOnbyHLO+im3UwPTODbq8LAiO1Ddz6wx/i0P7DxSTJiklY5/8aGF65fa0swooOdGb+Lgk9UyRU0xiyuOvWO/GVz34Jz3je+Th05CCYGTNL85hZnAtIz4RcpjUGhk2oZi470K1FYmNExsJYA8MMwwQmA0NcJLaDDWcyYdLq2+uQVBQvFexqf276uF7K/L+EpmYnDl4lQFfn4crf8xzeu0rw3ns4nyEXCfl3UoA8WIBmkuKGj38SPvPgglkdrqJezwwVmv+dzQhfAcCr/2tSvTRkDQhCoR3ove94N8a3TOBx5z4evdzBeYFXB+c9nORw0oE6BQmDVCHkC20xhS1nmHLjJg6TaiiE+VoKvpgYQi1hXbSbqha5Ki1tqxQMgcJVpkxAEkyNUw9fbgFQTZgA6kM0TAxLNkw2K9haRBSUI4osEiT4xNXX4uZPfB7MBFE3IOz1NlUq8r6m6Kj8xlp9gcO7jujY2NjE8sLit53I9mLIXO46EiURfvb8p+BJT9mHHbt3Im4liFuha8NaBgxVTW0m4NvQB6sCrz7QtN6HfGjgA+DV9XsiQs1JCIhq2wGUEayQDx0fVWK+1psLwJAJMJOLygLisNkGGzDZfkNw4aDLrYtEFNJzcN0MS/MLuPO2O/C56z+DL97whTWDwxU2ftAfCBORYXNH7t1pABZX23WKVtkhzzdMdEUu8lqn3pWrgygEOiUCaow2kTZTNNtNjE9OoDXaQqPdwPj4GNrjYxiZHMfo6AgajRSNZoJGM0Wj1UKUxIjjFFHcANuwqVBkTMhWQSvuvcTuQmXxfnDLXKE4rWoxSATitdgEKWx2keceWbeHvNNFZ3kZnaUOlpaXsbiwiKX5RSzOzmFhfhELs/NYmlsIv88vYuboNJZnFgs3YUNyZBNM7tBncsscpda+djHL3raZ/XaqKGYEIxM90/k/TvypouqI2AIhOWGIA8RUwbH0AUVxhDiJYWOLpBGj0WwjTiLYJOw2FccRoijs3UNFA7RlW+V465tpSNGq731AMi53yPMMLnPIuxl6nR46nS66nQ7yXo4s6yHvuk2nG0NnPVD2EpYFu2vZ94Fol5Ab4igx9utjW6bO3r9/f3ctDE5rwE9pRtEZTvFXXvx2XyMtqA+uV934QWu1NX3goj/yRPex94GV2zeuBgt1RUf6Wh0yA61L4bo14AwYIpPa6LZWs3Huobm5W9fa6Gi9IgoGIO04/ume6FUi8uSydLqISaUGT2mzu3cSaIPqYKy6wQRhkM7Q4Y507e+1UNZxDkTd0Hv91MM1omDVsiGLit1ZKGzM0SDzmaZpvvxQb33Bb9SyUe2UEZv4uaTyy0p4tIicIFCrm6ASivp836ciBnsmhj67qYcErxVZFlv5riVs3WBXguG9PM3m9InAwLIhup0Uf8cN87Hl5eyGIfnd6x1lBy6wFWgvR9HJucgporobwGUiulOgOsz0Fu38aooqxGrjU+1zMfUASo9BNan2z4qok9YyOv09f5j7oXO99LFsxChQLa+iXEJEzKBbIsIbDdF+a+2tp/d6dxQ5WmxW8JvdS5lqofHABdM4+Xqe5z/jQzcAD2mlGGKOjH1jBPm+qLZFMKaq4xlkC4HHiXRcFAlC7XoEQgRQA0RJQAjKGjJxNNCSW579kggN+91V++w7AjmFdhTIochVNWMmJ0DHEi0wMEOCeTK0qCJzBHSVaCEXPFUgL9NQtGaGeCAhIrbEf5OLf+Jq288fy5Mq7Cbbq/wqW7SDiHtaEO3VdlsBd+eWTWTZ/Hkn676hs+pl/QpjcLmCP7DnwdHCwoLN89yoKonMcJn7CLHLmDKzAjMAJiAyQzwHZUDs9m1yShTJkTSVC084wb/pSze7gR6FIqAYKNFwKwb20dhGp4jIuR5SQe0SOYRNXZHXZCdDMsKP5Tm6jSh6qyVWhMfqueLMDLPGUXTzTqBZfDZaZ3/6H8e+9DS0/bxZY8/8CACNjIxMRcZ+m8O9ZbV768XG6liavvZf8qFnBICawI6UzXesMUrEysQa21gbcXrT2NjYxL14bAbdDyfuzfNaxpLklMREXzNslBC2+TVktBklX56amhrBv/ADDcpHqW5L4/j1EUc3Jib+yEjafOEFuMD8K39eSXiU686dzdTGl8Yc3Zja+NNNm74aYa9//KQ8SeJf22OgjvmJRffXvRF+dE93q++eJz/uh7nfz48pqcd4/1bu7fhx/Dh+HD+OH8ePB8bx/wFrFvz+t1NIpQAAAABJRU5ErkJggg==" alt="Screend" />
+      <span class="name">Screend</span>
+    </header>
+
+    <h1>Delete Your Account &amp; Data</h1>
+    <p class="sub">How to permanently delete your Screend account, and exactly what is removed.</p>
+
+    <div class="card">
+      <h2>Delete from inside the app</h2>
+      <p>The fastest way to delete your Screend account is directly in the app:</p>
+      <ol>
+        <li>Open <strong>Screend</strong> and sign in.</li>
+        <li>Go to the <strong>menu</strong> → <strong>Settings</strong>.</li>
+        <li>Scroll to the <strong>Delete Account</strong> section at the bottom.</li>
+        <li>Tap <strong>Delete My Account &amp; Family</strong> — or <strong>Delete My Account</strong> if you're a second parent.</li>
+        <li>Type <strong>DELETE</strong> to confirm, and submit.</li>
+      </ol>
+      <p class="note">
+        If you are the <strong>family owner</strong>, this deletes the entire family account
+        (every parent and child). If you are a <strong>second parent</strong>, it removes only
+        your own login and leaves the family — owned by the primary parent — intact.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Already uninstalled the app?</h2>
+      <p>
+        If you no longer have the app installed, email us from the address on your account and
+        we will delete it for you:
+      </p>
+      <p><span class="email">screend@screendmedia.app</span></p>
+      <p class="note">
+        Please send the request from the email address associated with your Screend account so we
+        can verify it's you. We'll confirm once it's done.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What gets deleted</h2>
+      <p>When you delete your account, we permanently remove all of the following from our active systems:</p>
+      <ul>
+        <li>Your <strong>login and email address</strong> (and your co-parent's, if you're the family owner)</li>
+        <li>Your <strong>parent profile and name</strong></li>
+        <li>Every <strong>child profile</strong> — names, ages, and PINs</li>
+        <li>All <strong>reviews, verdicts, review requests, and appeals</strong></li>
+        <li>Any <strong>subscription records</strong> and in-app purchase history we store</li>
+        <li><strong>Push-notification tokens</strong> and device identifiers</li>
+        <li>Internal <strong>usage logs and pending invites</strong> tied to your family</li>
+      </ul>
+      <p class="note">
+        In short: everything associated with your account is deleted. We do <strong>not</strong> keep a
+        personal copy of your data after deletion.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Data retention</h2>
+      <p>
+        Your data is removed from our <strong>active systems immediately</strong> when you delete your
+        account. Any residual copies that remain in our routine, encrypted database backups are
+        automatically purged within <strong>30 days</strong>, after which no copy of your data remains.
+      </p>
+      <p class="note">
+        We do not sell your data, and we do not retain personal information after deletion for any
+        other purpose.
+      </p>
+    </div>
+
+    <footer>
+      Questions? Contact <a href="mailto:screend@screendmedia.app">screend@screendmedia.app</a>
+      &nbsp;·&nbsp; <a href="/privacy.html">Privacy Policy</a>
+    </footer>
+  </div>
+</body>
+</html>
