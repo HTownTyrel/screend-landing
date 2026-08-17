@@ -59,6 +59,8 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; }
+    /* Makes in-page anchor links (like "Get the App" -> #download) glide instead of jumping. */
+    html { scroll-behavior: smooth; }
     body { margin: 0; background: #FFFBF0; font-family: 'Space Grotesk', sans-serif; color: #0a0a0a; }
     @keyframes ticker {
       0% { transform: translateX(0); }
@@ -110,7 +112,8 @@
     <img src="wordmark.png" alt="Skopd" style="height:40px; width:auto; object-fit:contain;" />
   </div>
   <div style="display:flex; gap:12px; align-items:center;">
-    <button onclick="document.getElementById('notify-modal').style.display='flex'" style="font-size:14px; font-weight:900; color:#FFE500; padding:10px 22px; background:#0a0a0a; border:2px solid #0a0a0a; box-shadow:3px 3px 0 #0a0a0a; letter-spacing:0.06em; cursor:pointer; font-family:'Space Grotesk',sans-serif; text-transform:uppercase;">NOTIFY ME</button>
+    <!-- Scrolls to the #download section (App Store + Google Play buttons). CSS scroll-behavior:smooth (set on <html>) makes the jump glide. -->
+    <a href="#download" style="font-size:14px; font-weight:900; color:#FFE500; padding:10px 22px; background:#0a0a0a; border:2px solid #0a0a0a; box-shadow:3px 3px 0 #0a0a0a; letter-spacing:0.06em; cursor:pointer; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; text-decoration:none; display:inline-block;">Get the App</a>
   </div>
 </nav>
 
@@ -517,8 +520,8 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" style="background:#0a0a0a; padding:80px 48px; border-bottom:3px solid #0a0a0a;">
+<!-- CTA --><!-- id="download" is the scroll target for the nav "Get the App" button. scroll-margin-top keeps it clear of the sticky nav bar. -->
+<section id="download" class="cta-section" style="background:#0a0a0a; padding:80px 48px; border-bottom:3px solid #0a0a0a; scroll-margin-top:80px;">
   <div class="cta-grid" style="max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center;">
     <div>
       <h2 style="font-family:'Rajdhani',sans-serif; font-weight:700; font-size:clamp(38px,5vw,62px); line-height:0.95; margin:0 0 24px; letter-spacing:-0.01em; color:#FFE500;">
@@ -529,44 +532,15 @@
       </p>
     </div>
     <div class="cta-buttons" style="display:flex; flex-direction:column; gap:12px; min-width:210px;">
-      <div style="display:block; text-align:center; background:#333; color:#888; font-size:13px; font-weight:900; padding:15px 24px; border:2px solid #555; letter-spacing:0.1em; text-transform:uppercase; border-radius:4px;">
-        📱 APP STORE<br><span style="font-size:10px; color:#666; letter-spacing:0.15em; font-weight:700;">COMING SOON</span>
-      </div>
+      <a href="https://apps.apple.com/us/app/skopd-family-media-previews/id6798461182" target="_blank" rel="noopener" style="display:block; text-align:center; background:#fff; color:#0a0a0a; font-size:13px; font-weight:900; padding:15px 24px; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #FFE500; letter-spacing:0.1em; text-transform:uppercase; border-radius:4px; text-decoration:none;">
+        📱 APP STORE<br><span style="font-size:10px; color:#555; letter-spacing:0.15em; font-weight:700;">DOWNLOAD NOW</span>
+      </a>
       <a href="https://play.google.com/store/apps/details?id=com.getskopd.app" target="_blank" rel="noopener" style="display:block; text-align:center; background:#fff; color:#0a0a0a; font-size:13px; font-weight:900; padding:15px 24px; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #FFE500; letter-spacing:0.1em; text-transform:uppercase; border-radius:4px; text-decoration:none;">
         🤖 GOOGLE PLAY<br><span style="font-size:10px; color:#555; letter-spacing:0.15em; font-weight:700;">DOWNLOAD NOW</span>
       </a>
-      <button onclick="document.getElementById('notify-modal').style.display='flex'" style="display:block; width:100%; text-align:center; background:#FFE500; color:#0a0a0a; font-size:14px; font-weight:900; padding:14px 24px; border:2px solid #FFE500; box-shadow:4px 4px 0 #FFE500; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; font-family:'Space Grotesk',sans-serif; border-radius:4px; margin-top:4px;">Notify Me When It's Showtime!</button>
     </div>
   </div>
 </section>
-
-<!-- NOTIFY ME MODAL -->
-<div id="notify-modal" onclick="if(event.target===this)this.style.display='none'" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:24px;">
-  <div style="background:#FFFBF0; border:3px solid #0a0a0a; box-shadow:6px 6px 0 #0a0a0a; border-radius:4px; padding:32px 28px; width:100%; max-width:480px; position:relative; font-family:'Space Grotesk',sans-serif;">
-
-    <!-- Close -->
-    <button onclick="document.getElementById('notify-modal').style.display='none'" style="position:absolute; top:14px; right:16px; background:none; border:none; font-size:20px; cursor:pointer; color:#aaa; font-family:'Space Grotesk',sans-serif; line-height:1;">✕</button>
-
-    <div id="notify-form-wrap">
-      <h2 style="font-size:22px; font-weight:900; color:#0a0a0a; margin:0 0 10px; letter-spacing:0.02em;">BE THE FIRST TO KNOW</h2>
-      <p style="font-size:14px; font-weight:500; color:#333; line-height:1.65; margin:0 0 24px;">Skopd is coming soon. Enter your email and we'll let you know when it's ready for your family.</p>
-
-      <label style="display:block; font-size:10px; font-weight:800; letter-spacing:0.15em; color:#888; text-transform:uppercase; margin-bottom:8px;">YOUR EMAIL ADDRESS</label>
-      <input id="notify-email" type="email" placeholder="you@example.com" style="width:100%; padding:12px 14px; border:2px solid #0a0a0a; background:#fff; font-size:14px; font-weight:500; font-family:'Space Grotesk',sans-serif; color:#0a0a0a; outline:none; border-radius:4px; box-sizing:border-box; margin-bottom:8px;" />
-      <p style="font-size:12px; color:#aaa; font-weight:500; margin:0 0 20px; line-height:1.5;">We'll only use your email to keep you in the loop about Skopd. That's it.</p>
-
-      <p id="notify-error" style="display:none; font-size:13px; font-weight:700; color:#661d1d; background:#ffeded; border:2px solid #ff4949; border-radius:4px; padding:10px 12px; margin:0 0 14px; line-height:1.4;"></p>
-      <button id="notify-btn" onclick="submitWaitlist()" style="padding:13px 28px; background:#FFE500; color:#0a0a0a; border:2px solid #0a0a0a; box-shadow:4px 4px 0 #0a0a0a; font-size:14px; font-weight:900; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; font-family:'Space Grotesk',sans-serif; border-radius:4px;">Notify Me When It's Showtime!</button>
-    </div>
-
-    <div id="notify-thanks" style="display:none; text-align:center; padding:16px 0;">
-      <div style="font-size:40px; margin-bottom:16px;">🎉</div>
-      <h2 style="font-size:22px; font-weight:900; color:#0a0a0a; margin:0 0 10px;">YOU'RE ON THE LIST!</h2>
-      <p style="font-size:14px; font-weight:500; color:#555; line-height:1.65; margin:0 0 24px;">We'll reach out as soon as Skopd is ready for your family.</p>
-      <button onclick="document.getElementById('notify-modal').style.display='none'; document.getElementById('notify-form-wrap').style.display='block'; document.getElementById('notify-thanks').style.display='none'; document.getElementById('notify-email').value='';" style="padding:11px 24px; background:#0a0a0a; color:#FFE500; border:2px solid #0a0a0a; font-size:13px; font-weight:900; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; font-family:'Space Grotesk',sans-serif; border-radius:4px;">CLOSE</button>
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer style="background:#0a0a0a; padding:20px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
@@ -581,42 +555,6 @@
     <a href="mailto:hello@getskopd.com" style="font-family:'Share Tech Mono',monospace; font-size:11px; color:#444; text-decoration:none; letter-spacing:0.06em;">Contact</a>
   </div>
 </footer>
-
-<script>
-  /* Waitlist signup — posts to the same Supabase function the previous page used,
-     so signups land in the existing waitlist and trigger the confirmation email. */
-  async function submitWaitlist() {
-    var input = document.getElementById('notify-email');
-    var email = input.value.trim();
-    var btn   = document.getElementById('notify-btn');
-    var errEl = document.getElementById('notify-error');
-    errEl.style.display = 'none';
-    // Basic email shape check before hitting the server
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errEl.textContent = 'Please enter a valid email address.';
-      errEl.style.display = 'block';
-      return;
-    }
-    btn.textContent = 'SENDING...';
-    btn.disabled = true;
-    try {
-      var res = await fetch('https://sqinmxsssbitqdpfyjmp.supabase.co/functions/v1/join-waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email })
-      });
-      if (!res.ok) throw new Error('server error');
-      document.getElementById('notify-form-wrap').style.display = 'none';
-      document.getElementById('notify-thanks').style.display = 'block';
-      input.value = '';
-    } catch (err) {
-      errEl.textContent = 'Something went wrong. Please try again.';
-      errEl.style.display = 'block';
-      btn.textContent = "Notify Me When It's Showtime!";
-      btn.disabled = false;
-    }
-  }
-</script>
 
 </body>
 </html>
